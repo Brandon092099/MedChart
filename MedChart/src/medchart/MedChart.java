@@ -7,7 +7,10 @@ package medchart;
 
 /**
  *
- * @author brand
+ * @author Brandon George, David Amaya, Bee Yang
+ * 
+ * This is the main class for medchart that contains the main method. The 
+ * software begins running in this class and in the main method.
  */
 public class MedChart {
 
