@@ -1,113 +1,152 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+  <head>
+    <title>Messages</title>
+    <meta charset="utf-8" />
 
-<head>
-	<title>Messages</title>
-	<meta charset="utf-8">
+    <style>
+      #header {
+        margin: 0;
+        padding: 0;
+        background: #4c6ca0;
+        border-radius: 10px;
+        overflow: auto;
+      }
 
-	<style>
-		#header {
-			margin: 0;
-			padding: 0;
-			background: #4c6ca0;
-			border-radius: 10px;
-			overflow: auto;
-		}
+      #header li {
+        list-style: none;
+        float: left;
+      }
 
-		#header li {
-			list-style: none;
-			float: left;
-		}
+      #header li a {
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        padding: 15px 20px;
+      }
 
-		#header li a {
-			display: block;
-			color: #fff;
-			text-decoration: none;
-			padding: 15px 20px;
-		}
+      #header li a:hover {
+        background-color: #446190;
+        color: #f4f4f4;
+      }
 
-		#header li a:hover {
-			background-color: #446190;
-			color: #f4f4f4;
-		}
+      #main {
+        clear: both;
+        display: table;
+      }
 
-		#main{
-			clear: both;
-			display: table;
-		}
+      #Info {
+        display: table-cell;
+      }
 
-		#Info {
-			display: table-cell;
-		}
+      #sidebar {
+        display: table-cell;
+        width: 300px;
+      }
 
-		#sidebar {
-			display: table-cell;
-			width: 300px;
-		}
-		table, th, td {
-  			border: 1px solid black;
-  			border-collapse: collapse;
-			padding: 25px;
-			margin: 50px;
-		}
-		button {
-			margin-left: 50px;
-		}
+      #btn {
+        display: block;
+        margin-top: 15px;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: rgba(101, 165, 207, 0.822);
+        border: rgba(101, 165, 207, 0.822);
+        cursor: pointer;
+      }
 
-	</style>
-</head>
-<body>
-	<!-- body content goes here -->
+      #btn:hover {
+        background: #005e8a;
+      }
 
+      #Message {
+        display: table-cell;
+        background-color: #eaeaea;
+        border-radius: 10px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
 
+      h5 {
+        margin-bottom: -1px;
+      }
 
-<div id="header">  <!-- Header -->
+      p {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
 
-<ul>
-<li><a href="Home.html">Home</a></li>
-<li><a href="Medical_Status.html">Medical Status</a></li>
-<li><a href="Test_Results.html">Test Results</a></li>
-<li><a href="Messages.html">Messages</a></li>
-<li><a href="Check_in.html">Check In</a></li>
-<li><a href="Room_Management.html">Room Management</a></li>
-<li><a href="Account_Settings.html">Account Settings</a></li>
-<li><a href="Assistance.html">Assistance</a></li>
-<li><a href="Login.html">Logout</a></li>
-</ul>
-</div>
+      h6 {
+        margin-top: 1px;
+      }
 
-<div id="main"> <!-- main -->
+      #Box {
+        border: 1px solid black;
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- body content goes here -->
 
-<div id="Info"> <!-- main content -->
-	<table>
-		<tr>
-		  <th>Sender</th>
-		  <th>Date/Time</th>
-		  <th>Message</th>
-		</tr>
-		<tr>
-		  <td>Dr. Meredith Grey</td>
-		  <td>10-17-22/3:45pm</td>
-		  <td>The TB test showed a negative result, so we will continue with more tests to obtain the diagnosis.</td>
-		</tr>
-		<tr>
-		  <td>Dr. Alex Karev</td>
-		  <td>10-17-22/6:15pm</td>
-		  <td>The Influenza test showed a negative result, so we will continue with more tests to obtain the diagnosis.</td>
-		</tr>
-		<tr>
-			<td>Reception Desk</td>
-			<td>10-17-22/8:20pm</td>
-			<td>Your family memeber stopped by to drop off flowers. They will be delivered to your room ASAP.</td>
-		  </tr>
-	  </table>
+    <div id="header">
+      <!-- Header -->
 
-	  <button type="submit" class="btn"><a href="New_Message.html">New Message</a></button>
-</div>
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="Medical_Status.html">Medical Status</a></li>
+        <li><a href="Test_Results.html">Test Results</a></li>
+        <li><a href="Messages.html">Messages</a></li>
+        <li><a href="Check_in.html">Check In</a></li>
+        <li><a href="Room_Management.html">Room Management</a></li>
+        <li><a href="Account_Settings.html">Account Settings</a></li>
+        <li><a href="Assistance.html">Assistance</a></li>
+        <li><a href="Login.html">Logout</a></li>
+      </ul>
+    </div>
 
+    <div id="main">
+      <!-- main -->
 
-</div>
+      <div id="Info">
+        <!-- main content -->
 
+        <div id="Box">
+          <h5>Dr. Meredith Grey</h5>
+          <div id="Message">
+            <p>
+              The TB test showed a negative result, so we will continue with
+              more tests to obtain the diagnosis.
+            </p>
+          </div>
+          <h6>10-17-22/3:45pm</h6>
 
-</body>
+          <h5>Dr. Alex Karev</h5>
+          <div id="Message">
+            <p>
+              The Influenza test showed a negative result, so we will continue
+              with more tests to obtain the diagnosis.
+            </p>
+          </div>
+          <h6>10-17-22/6:15pm</h6>
+
+          <h5>Reception Desk</h5>
+          <div id="Message">
+            <p>
+              Your family memeber stopped by to drop off flowers. They will be
+              delivered to your room ASAP.
+            </p>
+          </div>
+          <h6>10-17-22/8:20pm</h6>
+        </div>
+        <input
+          type="button"
+          id="btn"
+          onclick="parent.location='New_Message.html'"
+          value="New Message"
+        />
+      </div>
+    </div>
+  </body>
 </html>

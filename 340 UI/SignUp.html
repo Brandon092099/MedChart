@@ -56,7 +56,14 @@
 
       }
 
-      .form-wrap button {
+
+
+      .form-wrap .bottom-text {
+       font-size: 13px;
+       margin-top: 20px;
+      }
+
+      #btn{
         display: block;
         margin-top: 15px;
         border-radius: 10px;
@@ -67,13 +74,8 @@
         cursor: pointer;
       }
 
-      .form-wrap button:hover {
+      #btn:hover {
         background: #007FBB;
-      }
-
-      .form-wrap .bottom-text {
-       font-size: 13px;
-       margin-top: 20px;
       }
 
       footer {
@@ -111,7 +113,7 @@
             <label for="password2">Confirm Password</label>
             <input type="password" name="pasword2" id="password2" />
           </div>
-          <button type="submit" class="btn">Sign Up</button>
+          <input type="button" id="btn" onclick="parent.location='SignUp.html'" value="Signup">
           <p class="bottom-text">
             By clicking the Sign Up button, you agree to our
             <a href="#">Terms & Conditions</a> and

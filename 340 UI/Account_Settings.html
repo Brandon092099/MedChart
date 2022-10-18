@@ -1,107 +1,159 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+  <head>
+    <title>Account Settings</title>
+    <meta charset="utf-8" />
 
-<head>
-	<title>Account Settings</title>
-	<meta charset="utf-8">
+    <style>
+      #header {
+        margin: 0;
+        padding: 0;
+        background: #4c6ca0;
+        border-radius: 10px;
+        overflow: auto;
+        margin-bottom: 10px;
+      }
 
-	<style>
-		#header {
-			margin: 0;
-			padding: 0;
-			background: #4c6ca0;
-			border-radius: 10px;
-			overflow: auto;
-		}
+      #header li {
+        list-style: none;
+        float: left;
+      }
 
-		#header li {
-			list-style: none;
-			float: left;
-		}
+      #header li a {
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        padding: 15px 20px;
+      }
 
-		#header li a {
-			display: block;
-			color: #fff;
-			text-decoration: none;
-			padding: 15px 20px;
-		}
+      #header li a:hover {
+        background-color: #446190;
+        color: #f4f4f4;
+      }
 
-		#header li a:hover {
-			background-color: #446190;
-			color: #f4f4f4;
-		}
+      #main {
+        clear: both;
+        display: table;
+      }
 
-		#main{
-			clear: both;
-			display: table;
-		}
+      #Info {
+        display: table-cell;
+        background-color: #c0c0c0;
+        padding: 10px;
+        border-radius: 10px;
+      }
 
-		#Info {
-			display: table-cell;
-			padding: 10px;
-		}
+      #sidebar {
+        display: table-cell;
+        width: 300px;
+      }
 
-		#sidebar {
-			display: table-cell;
-			width: 300px;
-		}
+      input {
+        padding: 5px;
+        border: #ddd 1px solid;
+        border-radius: 5px;
+      }
 
-	</style>
-</head>
-<body>
-	<!-- body content goes here -->
+      #btn {
+        border-radius: 5px;
+        padding: 5px;
+        cursor: pointer;
+		background-color: rgba(101, 165, 207, 0.822);
+		border: rgba(101, 165, 207, 0.822);
+      }
 
+      #btn:hover {
+		background: #005e8a;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- body content goes here -->
 
-<div id="header">  <!-- Header -->
+    <div id="header">
+      <!-- Header -->
 
-<ul>
-<li><a href="Home.html">Home</a></li>
-<li><a href="Medical_Status.html">Medical Status</a></li>
-<li><a href="Test_Results.html">Test Results</a></li>
-<li><a href="Messages.html">Messages</a></li>
-<li><a href="Check_in.html">Check In</a></li>
-<li><a href="Room_Management.html">Room Management</a></li>
-<li><a href="Account_Settings.html">Account Settings</a></li>
-<li><a href="Assistance.html">Assistance</a></li>
-<li><a href="Login.html">Logout</a></li>
-</ul>
-</div>
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="Medical_Status.html">Medical Status</a></li>
+        <li><a href="Test_Results.html">Test Results</a></li>
+        <li><a href="Messages.html">Messages</a></li>
+        <li><a href="Check_in.html">Check In</a></li>
+        <li><a href="Room_Management.html">Room Management</a></li>
+        <li><a href="Account_Settings.html">Account Settings</a></li>
+        <li><a href="Assistance.html">Assistance</a></li>
+        <li><a href="Login.html">Logout</a></li>
+      </ul>
+    </div>
 
-<div id="main"> <!-- main -->
+    <div id="main">
+      <!-- main -->
 
-<div id="Info"> <!-- main content -->
-	<label for="email">Update Email</label>
-    <input type="email" name="email" id="email" />
-	<button type="submit" class="btn"><a href="Home.html">Update</a></button>
-	<br>
-	<br>
-	<label for="password">Update Password</label>
-	<input type="password" name="password" id="password" />
-	<button type="submit" class="btn"><a href="SignUp.html">Update</a></button>
-	<br>
-	<br>
-	<label for="password">Update Name</label>
-	<input type="password" name="password" id="password" />
-	<button type="submit" class="btn"><a href="SignUp.html">Update</a></button>
-	<br>
-	<br>
-	<label for="password">Update Address</label>
-	<input type="password" name="password" id="password" />
-	<button type="submit" class="btn"><a href="SignUp.html">Update</a></button>
-	<br>
-	<br>
-	<label for="password">Update Birthdate</label>
-	<input type="password" name="password" id="password" />
-	<button type="submit" class="btn"><a href="SignUp.html">Update</a></button>
-	<br>
-	<br>
-	Notifications
-	<input type="checkbox" id="Notifications" name="Notifications" value="Notifications">
-</div>
-
-
-</div>
-
-
-</body>
+      <div id="Info">
+        <!-- main content -->
+        <label for="email">Update Email</label>
+        <br />
+        <input type="email" name="email" id="email" />
+        <input
+          type="button"
+          id="btn"
+          onclick="parent.location='Account_Settings.html'"
+          value="Update"
+        />
+        <br />
+        <br />
+        <label for="password">Update Password</label>
+        <br />
+        <input type="password" name="password" id="password" />
+        <input
+          type="button"
+          id="btn"
+          onclick="parent.location='Account_Settings.html'"
+          value="Update"
+        />
+        <br />
+        <br />
+        <label for="name">Update Name</label>
+        <br />
+        <input type="name" name="name" id="name" />
+        <input
+          type="button"
+          id="btn"
+          onclick="parent.location='Account_Settings.html'"
+          value="Update"
+        />
+        <br />
+        <br />
+        <label for="address">Update Address</label>
+        <br />
+        <input type="address" name="address" id="address" />
+        <input
+          type="button"
+          id="btn"
+          onclick="parent.location='Account_Settings.html'"
+          value="Update"
+        />
+        <br />
+        <br />
+        <label for="date">Update Birthdate</label>
+        <br />
+        <input type="date" name="date" id="date" />
+        <input
+          type="button"
+          id="btn"
+          onclick="parent.location='Account_Settings.html'"
+          value="Update"
+        />
+        <br />
+        <br />
+        Notifications
+        <input
+          type="checkbox"
+          id="Notifications"
+          name="Notifications"
+          value="Notifications"
+        />
+      </div>
+    </div>
+  </body>
 </html>
