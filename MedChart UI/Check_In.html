@@ -12,6 +12,7 @@
 			background: #4c6ca0;
 			border-radius: 10px;
 			overflow: auto;
+			margin-bottom: 10px;
 		}
 
 		#header li {
@@ -38,13 +39,59 @@
 
 		#Info {
 			display: table-cell;
+			background-color: #c0c0c0;
 			padding: 10px;
+			border-radius: 10px;
+			
 		}
 
-		#sidebar {
-			display: table-cell;
-			width: 300px;
-		}
+		#btn{
+        display: block;
+        margin-top: 15px;
+        border-radius: 10px;
+        width: 100%;
+        padding: 10px;
+        background-color: rgba(101, 165, 207, 0.822);
+		border: rgba(101, 165, 207, 0.822);
+        cursor: pointer;
+      }
+
+      #btn:hover {
+        background: #005e8a;
+      }
+
+	  #email {
+        padding: 5px;
+        border: #ddd 1px solid;
+        border-radius: 4px;
+	  }
+
+	  #number {
+        padding: 5px;
+        border: #ddd 1px solid;
+        border-radius: 4px;
+	  }
+
+	  #name {
+        padding: 5px;
+        border: #ddd 1px solid;
+        border-radius: 4px;
+	  }
+
+	  #address {
+        padding: 5px;
+        border: #ddd 1px solid;
+        border-radius: 4px;
+	  }
+
+	  #date {
+        padding: 5px;
+        border: #ddd 1px solid;
+        border-radius: 4px;
+	  }
+
+
+
 
 	</style>
 </head>
@@ -74,23 +121,23 @@
     <input type="email" name="email" id="email" />
 	<br>
 	<br>
-	<label for="password">Patient Room Number</label>
-	<input type="password" name="password" id="password" />
+	<label for="number">Patient Room Number</label>
+	<input type="number" name="number" id="number" />
 	<br>
 	<br>
-	<label for="password">Patient Name</label>
-	<input type="password" name="password" id="password" />
+	<label for="name">Patient Name</label>
+	<input type="name" name="name" id="name" />
 	<br>
 	<br>
-	<label for="password">Patient Address</label>
-	<input type="password" name="password" id="password" />
+	<label for="address">Patient Address</label>
+	<input type="address" name="address" id="address" />
 	<br>
 	<br>
-	<label for="password">Patient Birthdate</label>
-	<input type="password" name="password" id="password" />
+	<label for="date">Patient Birthdate</label>
+	<input type="date" name="date" id="date" />
 	<br>
 	<br>
-	<button type="submit" class="btn"><a href="Check_In.html">Check In</a></button>
+	<input type="button" id="btn" onclick="parent.location='Check_In.html'" value="Check In">
 </div>
 
 

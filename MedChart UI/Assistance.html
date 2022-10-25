@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Messages</title>
+	<title>Account Settings</title>
 	<meta charset="utf-8">
 
 	<style>
@@ -38,27 +38,44 @@
 
 		#Info {
 			display: table-cell;
+			padding: 10px;
 		}
 
 		#sidebar {
 			display: table-cell;
 			width: 300px;
 		}
-		table, th, td {
-  			border: 1px solid black;
-  			border-collapse: collapse;
-			padding: 25px;
-			margin: 50px;
+
+        input {
+            padding: 50px;
+            font-size: 20px;
+            background-color: pink;
+            margin: 10px;
+            color: black;
+			border-radius: 20px;
+			cursor: pointer;
+			
+            
+        }
+        input:hover {
+            color: lightcoral;
+			background-color: rgb(190, 73, 73);
+        }
+        #btn1 {
+            background-color: red;
+            color: black;
+        }
+
+		#btn1:hover {
+			background-color:  rgb(190, 73, 73);
+			color:  lightcoral;
 		}
-		button {
-			margin-left: 50px;
-		}
+
 
 	</style>
 </head>
 <body>
 	<!-- body content goes here -->
-
 
 
 <div id="header">  <!-- Header -->
@@ -79,30 +96,9 @@
 <div id="main"> <!-- main -->
 
 <div id="Info"> <!-- main content -->
-	<table>
-		<tr>
-		  <th>Sender</th>
-		  <th>Date/Time</th>
-		  <th>Message</th>
-		</tr>
-		<tr>
-		  <td>Dr. Meredith Grey</td>
-		  <td>10-17-22/3:45pm</td>
-		  <td>The TB test showed a negative result, so we will continue with more tests to obtain the diagnosis.</td>
-		</tr>
-		<tr>
-		  <td>Dr. Alex Karev</td>
-		  <td>10-17-22/6:15pm</td>
-		  <td>The Influenza test showed a negative result, so we will continue with more tests to obtain the diagnosis.</td>
-		</tr>
-		<tr>
-			<td>Reception Desk</td>
-			<td>10-17-22/8:20pm</td>
-			<td>Your family memeber stopped by to drop off flowers. They will be delivered to your room ASAP.</td>
-		  </tr>
-	  </table>
-
-	  <button type="submit" class="btn"><a href="New_Message.html">New Message</a></button>
+    <input type="button" id="btn1" onclick="parent.location='Home.html'" value="Call For Emergency Assistance">
+	<br>
+	<input type="button" id="btn" onclick="parent.location='Home.html'" value="Call For General Assistance">
 </div>
 
 

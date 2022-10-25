@@ -7,20 +7,29 @@
 
 	<style>
 
-		#header {
-			background-color: whitesmoke;
-			border: 3px solid grey;
+#header {
+			margin: 0;
+			padding: 0;
+			background: #4c6ca0;
 			border-radius: 10px;
+			overflow: auto;
 		}
 
-		#header ul li {
-			font-size: 130%;
-			display: inline;
-			font-family: Georgia, 'Times New Roman', Times, serif;
+		#header li {
+			list-style: none;
+			float: left;
 		}
 
-		#header a:hover {
-			color: orange;
+		#header li a {
+			display: block;
+			color: #fff;
+			text-decoration: none;
+			padding: 15px 20px;
+		}
+
+		#header li a:hover {
+			background-color: #446190;
+			color: #f4f4f4;
 		}
 
 		.btn {
@@ -51,6 +60,7 @@
 			border: 3px solid grey;
 			border-radius: 10px;
 			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			padding: 10px;
 			
 		}
 
@@ -72,6 +82,7 @@
 		}
 
 
+
 	</style>
 </head>
 <body>
@@ -79,10 +90,15 @@
 
 <div id="header">  <!-- Header -->
 	<ul>
-		<li><a class="btn" href="UI1.html">Home</a></li>
-		<li><a class="btn" href="UI2.html">Test Results</a></li>
-		<li><a class="btn" href="UI3.html">Messages</a></li>
-		<li><a class="btn" href="UI4.html">Account Settings</a></li>
+		<li><a href="Home.html">Home</a></li>
+		<li><a href="Medical_Status.html">Medical Status</a></li>
+		<li><a href="Test_Results.html">Test Results</a></li>
+		<li><a href="Messages.html">Messages</a></li>
+		<li><a href="Check_in.html">Check In</a></li>
+		<li><a href="Room_Management.html">Room Management</a></li>
+		<li><a href="Account_Settings.html">Account Settings</a></li>
+		<li><a href="Assistance.html">Assistance</a></li>
+		<li><a href="Login.html">Logout</a></li>
 	</ul>
 
 </div>
@@ -91,14 +107,12 @@
 
 <div id="Info"> <!-- main content -->
 
-<h1>PlaceHolder<h2>
-
+<h1 id="news">News<h2>
+<h3>Covid-19 Boosters Available Now!</h3>
 	<p>
-	It was so great to hear from you today and it was such weird timing," he said. 
-"This is going to sound funny and a little strange, but you were in a dream I had just a couple of 
-days ago. I'd love to get together and tell you about it if you're up for a cup of coffee,
-" he continued, laying the trapped he's been planning for years.
+	Covid-19 boosters are readily available at your local hospital! Reach out to a receptionist for information!
 	</p>
+<img src="https://news.gsu.edu/files/2022/05/iStock-1230251561.jpg" alt="Covid Booster Shot" width="450px" height="250px"> 
 
 </div> <!-- end of main -->
 
@@ -122,9 +136,6 @@ days ago. I'd love to get together and tell you about it if you're up for a cup 
 
 </div> <!-- end of body -->
 
-<div id="footer">
-Copyright LS Studios 2022 &#169;
-</div>
 
 </body>
 </html>

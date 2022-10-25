@@ -2,10 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Login</title>
+    <title>Sign Up</title>
+
 
     <style>
-     * {
+      * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
@@ -55,7 +56,14 @@
 
       }
 
-      .form-wrap button {
+
+
+      .form-wrap .bottom-text {
+       font-size: 13px;
+       margin-top: 20px;
+      }
+
+      #btn{
         display: block;
         margin-top: 15px;
         border-radius: 10px;
@@ -66,13 +74,8 @@
         cursor: pointer;
       }
 
-      .form-wrap button:hover {
+      #btn:hover {
         background: #007FBB;
-      }
-
-      .form-wrap .bottom-text {
-       font-size: 13px;
-       margin-top: 20px;
       }
 
       footer {
@@ -88,8 +91,16 @@
   <body>
     <div id="container">
       <div class="form-wrap">
-        <h1>Login</h1>
+        <h1>Sign Up</h1>
         <form>
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" name="firstName" id="first-name" />
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" name="lastName" id="last-name" />
+          </div>
           <div class="form-group">
             <label for="email">Email</label>
             <input type="email" name="email" id="email" />
@@ -98,12 +109,20 @@
             <label for="password">Password</label>
             <input type="password" name="password" id="password" />
           </div>
-          <button type="submit" class="btn"><a href="Home.html">Login</a></button>
-          <button type="submit" class="btn"><a href="SignUp.html">Signup</a></button>
+          <div class="form-group">
+            <label for="password2">Confirm Password</label>
+            <input type="password" name="pasword2" id="password2" />
+          </div>
+          <input type="button" id="btn" onclick="parent.location='SignUp.html'" value="Signup">
+          <p class="bottom-text">
+            By clicking the Sign Up button, you agree to our
+            <a href="#">Terms & Conditions</a> and
+            <a href="#">Privacy Policy</a>
+          </p>
         </form>
       </div>
       <footer>
-        <p><a href="#">Forgot Password?</a></p>
+        <p>Already have an account? <a href="Login.html">Login Here</a></p>
       </footer>
     </div>
   </body>

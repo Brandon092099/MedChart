@@ -2,16 +2,24 @@
 <html>
 
 <head>
-	<title>Account Settings</title>
+	<title>Test Results</title>
 	<meta charset="utf-8">
 
 	<style>
+
 		#header {
 			margin: 0;
 			padding: 0;
 			background: #4c6ca0;
 			border-radius: 10px;
 			overflow: auto;
+		}
+
+		table, th, td {
+  			border: 1px solid black;
+  			border-collapse: collapse;
+			padding: 25px;
+			margin: 50px;
 		}
 
 		#header li {
@@ -38,46 +46,18 @@
 
 		#Info {
 			display: table-cell;
-			padding: 10px;
 		}
 
 		#sidebar {
 			display: table-cell;
 			width: 300px;
 		}
-        button {
-            padding: 50px;
-            font-size: 20px;
-            background-color: pink;
-            margin: 10px;
-            color: lightblue;
-            
-        }
-        button a:hover {
-            color: lightcoral;
-        }
-        .btn1 {
-            background-color: red;
-            color: lightcyan;
-        }
-        .btn1 a:hover {
-            color: lightcoral;
-        }
-        .btn1 a:link {
-            color:aqua;
-        }
-        button a:link {
-            color: chartreuse;
-        }
 
 	</style>
 </head>
 <body>
 	<!-- body content goes here -->
-
-
-<div id="header">  <!-- Header -->
-
+<div id="header">
 <ul>
 <li><a href="Home.html">Home</a></li>
 <li><a href="Medical_Status.html">Medical Status</a></li>
@@ -94,12 +74,40 @@
 <div id="main"> <!-- main -->
 
 <div id="Info"> <!-- main content -->
-    <button type="submit" class="btn1"><a href="Home.html">Call For Emergency Assistance</a></button>
-    <br>
-	<button type="submit" class="btn"><a href="Home.html">Call For General Assistance</a></button>
 
+	<table>
+		<tr>
+		  <th>Room Number</th>
+		  <th>Full Status</th>
+          <th>Clean Status</th>
+		  <th>Notes</th>
+		</tr>
+		<tr>
+		  <td>201</td>
+		  <td><input type="radio" id="filled" name="filled" value="FILLED">
+            <label for="html">Empty</label><br>
+            <input type="radio" id="empty" name="filled" value="EMPTY">
+            <label for="css">Full</label><br></td>
+            <td><input type="radio" id="html" name="fav_language" value="HTML">
+                <label for="html">Clean</label><br>
+                <input type="radio" id="css" name="fav_language" value="CSS">
+                <label for="css">Dirty</label><br></td>
+		  <td>Room is clean and ready for patient.</td>
+		</tr>
+		<tr>
+		  <td>308</td>
+		  <td>Full</td>
+          <td>Occupied</td>
+		  <td>Room currently contains stable patient.</td>
+		</tr>
+		<tr>
+			<td>403</td>
+			<td>Empty</td>
+            <td>Not Clean</td>
+			<td>Room is empty, but it has not yet been cleaned.</td>
+		  </tr>
+	  </table>
 </div>
-
 
 </div>
 

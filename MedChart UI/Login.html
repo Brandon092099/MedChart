@@ -2,11 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Sign Up</title>
-
+    <title>Login</title>
 
     <style>
-      * {
+     * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
@@ -27,12 +26,14 @@
         margin: 30px auto;
         max-width: 400px;
         padding: 20px;
+        
       }
 
       .form-wrap {
         background: #fff;
         padding: 15px 20px;
         color: #333;
+        border-radius: 10px;
       }
 
       .form-wrap h1, .form-wrap p {
@@ -56,21 +57,6 @@
 
       }
 
-      .form-wrap button {
-        display: block;
-        margin-top: 15px;
-        border-radius: 10px;
-        width: 100%;
-        padding: 10px;
-        background: #0094DA;
-        color: #fff;
-        cursor: pointer;
-      }
-
-      .form-wrap button:hover {
-        background: #007FBB;
-      }
-
       .form-wrap .bottom-text {
        font-size: 13px;
        margin-top: 20px;
@@ -84,21 +70,29 @@
       footer a {
         color: #49c1a2;
       }
+
+      #btn{
+        display: block;
+        margin-top: 15px;
+        border-radius: 10px;
+        width: 100%;
+        padding: 10px;
+        background: #0094DA;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      #btn:hover {
+        background: #007FBB;
+      }
+
     </style>
   </head>
   <body>
     <div id="container">
       <div class="form-wrap">
-        <h1>Sign Up</h1>
+        <h1>Login</h1>
         <form>
-          <div class="form-group">
-            <label for="first-name">First Name</label>
-            <input type="text" name="firstName" id="first-name" />
-          </div>
-          <div class="form-group">
-            <label for="last-name">Last Name</label>
-            <input type="text" name="lastName" id="last-name" />
-          </div>
           <div class="form-group">
             <label for="email">Email</label>
             <input type="email" name="email" id="email" />
@@ -107,20 +101,12 @@
             <label for="password">Password</label>
             <input type="password" name="password" id="password" />
           </div>
-          <div class="form-group">
-            <label for="password2">Confirm Password</label>
-            <input type="password" name="pasword2" id="password2" />
-          </div>
-          <button type="submit" class="btn">Sign Up</button>
-          <p class="bottom-text">
-            By clicking the Sign Up button, you agree to our
-            <a href="#">Terms & Conditions</a> and
-            <a href="#">Privacy Policy</a>
-          </p>
+          <input type="button" id="btn" onclick="parent.location='Home.html'" value="Login">
+          <input type="button" id="btn" onclick="parent.location='SignUp.html'" value="Signup">
         </form>
       </div>
       <footer>
-        <p>Already have an account? <a href="Login.html">Login Here</a></p>
+        <p><a href="#">Forgot Password?</a></p>
       </footer>
     </div>
   </body>
