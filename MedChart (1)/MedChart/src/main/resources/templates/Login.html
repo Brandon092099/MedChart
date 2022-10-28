@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html 
+    lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+
+    <style>
+     * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: #344a72;
+        color: #fff;
+        line-height: 1.8;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      #container {
+        margin: 30px auto;
+        max-width: 400px;
+        padding: 20px;
+        
+      }
+
+      .form-wrap {
+        background: #fff;
+        padding: 15px 20px;
+        color: #333;
+        border-radius: 10px;
+      }
+
+      .form-wrap h1, .form-wrap p {
+       text-align: center;
+      }
+
+      .form-wrap .form-group {
+        margin-top: 15px;
+      }
+
+      .form-wrap .form-group label {
+        display: block;
+        color: #666;
+      }
+
+      .form-wrap .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: #ddd 1px solid;
+        border-radius: 10px;
+
+      }
+
+      .form-wrap .bottom-text {
+       font-size: 13px;
+       margin-top: 20px;
+      }
+
+      footer {
+       text-align: center;
+       margin-top: 10px;
+      }
+
+      footer a {
+        color: #49c1a2;
+      }
+
+      #btn{
+        display: block;
+        margin-top: 15px;
+        border-radius: 10px;
+        width: 100%;
+        padding: 10px;
+        background: #0094DA;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      #btn:hover {
+        background: #007FBB;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div class="form-wrap">
+        <h1>Login</h1>
+        <form>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" />
+          </div>
+          <input type="button" id="btn" onclick="parent.location='Home'" value="Login">
+          <input type="button" id="btn" onclick="parent.location='SignUp'" value="Signup">
+        </form>
+      </div>
+      <footer>
+        <p><a href="#">Forgot Password?</a></p>
+      </footer>
+    </div>
+  </body>
+</html>

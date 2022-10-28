@@ -12,7 +12,8 @@ package medchart;
  * This class contains all variables and methods for a user listed as a 
  * receptionist. It is a child of the user class.
  */
-public class Receptionist extends User{
+public class Receptionist{
     
+ 
     
 }

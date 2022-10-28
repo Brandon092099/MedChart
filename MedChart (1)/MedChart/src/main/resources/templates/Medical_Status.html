@@ -1,0 +1,111 @@
+<!doctype html>
+<html
+    lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+    <head>
+        <title>Medical Status</title>
+        <meta charset="utf-8">
+
+            <style>
+
+                #header {
+                    margin: 0;
+                    padding: 0;
+                    background: #4c6ca0;
+                    border-radius: 10px;
+                    overflow: auto;
+                }
+
+                table, th, td {
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                    padding: 25px;
+                    margin: 50px;
+                }
+
+                #header li {
+                    list-style: none;
+                    float: left;
+                }
+
+                #header li a {
+                    display: block;
+                    color: #fff;
+                    text-decoration: none;
+                    padding: 15px 20px;
+                }
+
+                #header li a:hover {
+                    background-color: #446190;
+                    color: #f4f4f4;
+                }
+
+                #main{
+                    clear: both;
+                    display: table;
+                }
+
+                #Info {
+                    display: table-cell;
+                }
+
+                #sidebar {
+                    display: table-cell;
+                    width: 300px;
+                }
+
+            </style>
+    </head>
+    <body>
+        <!-- body content goes here -->
+        <div id="header">
+            <ul>
+                <li><a href="Home">Home</a></li>
+                <li><a href="Medical_Status">Medical Status</a></li>
+                <li><a href="Test_Results">Test Results</a></li>
+                <li><a href="Messages">Messages</a></li>
+                <li><a href="Check_In">Check In</a></li>
+                <li><a href="Room_Management">Room Management</a></li>
+                <li><a href="Account_Settings">Account Settings</a></li>
+                <li><a href="Assistance">Assistance</a></li>
+                <li><a href="Login">Logout</a></li>
+            </ul>
+        </div>
+
+        <div id="main"> <!-- main -->
+
+            <div id="Info"> <!-- main content -->
+
+                <table>
+                    <tr>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>General status</td>
+                        <td>Stable</td>
+                        <td>Patient is stable and awake.</td>
+                    </tr>
+                    <tr>
+                        <td>Medication status</td>
+                        <td>On Medication</td>
+                        <td>The patient is currently on 200mg on Ibuprofen daily.</td>
+                    </tr>
+                    <tr>
+                        <td>Vitals</td>
+                        <td>Stable</td>
+                        <td>The patients vitals are steady.</td>
+                    </tr>
+
+                </table>
+            </div>
+
+        </div>
+
+
+    </body>
+</html>
