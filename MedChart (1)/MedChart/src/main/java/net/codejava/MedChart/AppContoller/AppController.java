@@ -19,7 +19,10 @@ public class AppController {
         return new ModelAndView("Home");
     }
     
-    
+    @GetMapping("/SignUp")
+    public ModelAndView SignupPage() {
+        return new ModelAndView("SignUp");
+    }
 
     
     

@@ -30,6 +30,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private User_Service userService;
     
+    @Lazy
     @Bean
     public BCryptPasswordEncoder encoder(){
         return new BCryptPasswordEncoder();

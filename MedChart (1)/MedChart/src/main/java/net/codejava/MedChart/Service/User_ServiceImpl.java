@@ -12,12 +12,14 @@ import net.codejava.MedChart.Repository.User_Repository;
 import net.codejava.MedChart.User.Role;
 import net.codejava.MedChart.User.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -27,24 +29,23 @@ import org.springframework.stereotype.Service;
 @Service
 public class User_ServiceImpl implements User_Service {
 
-    
-
-
-    @Autowired
     private User_Repository userRepo;
 
-    public User_ServiceImpl( User_Repository userRepo) {
+    @Autowired
+    private BCryptPasswordEncoder passencoder;
+
+    public User_ServiceImpl(User_Repository userRepo) {
         this.userRepo = userRepo;
     }
 
+    
+
     @Override
     public User save(User_Register_DTO registrationDTO) {
-        
-         
-        User user = new User(registrationDTO.getFirstName(), registrationDTO.getLastName(),
-                registrationDTO.getEmail(), registrationDTO.getPassword(), Arrays.asList(new Role("ROLE_USER")));
 
-       
+        User user = new User(registrationDTO.getFirstName(), registrationDTO.getLastName(),
+                registrationDTO.getEmail(), passencoder.encode(registrationDTO.getPassword()),
+                Arrays.asList(new Role("ROLE_USER")));
 
         return userRepo.save(user);
     }
