@@ -12,8 +12,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta charset="UTF-8" />
         <title>Admin</title>
         
-        
- <style>
+         <style>
 
                 #header {
                     margin: 0;
@@ -103,39 +102,49 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         
     </head>
     <body>
-        
-         <div id="header">  <!-- Header -->
+        <div id="header">  <!-- Header -->
             <ul>
-                <li><a th:href ="@{/admin/Home}">Home</a></li>
-                <li><a th:href ="@{/MedStaff}">Medical Staff</a></li>
-                <li><a th:href ="@{/Receptionist}">Receptionist</a></li>
-                <li><a th:href ="@{/Patients}">Patients</a></li>
+                <li><a href="Home">Home</a></li>
+                <li><a href="MedStaff">Medical Staff</a></li>
+                <li><a href="Receptionist">Receptionist</a></li>
+                <li><a href="Patients">Patients</a></li>
                 <li><a href="Login">Logout</a></li>
             </ul>
 
         </div>
         
+        
         <div class="container">
-            <h1> Medical Staff </h1>
+            <h1> Receptionist </h1>
             
-            <a th:href ="@{/newMedStaffForm}" class="btn-primary"> Add Medical Staff </a>
+            <a th:href ="@{/newReceptionistForm}" class="btn-primary"> Add Receptionist </a>
             
             <table border="2">
                 <thead>
                     <tr>
-                        <th>Medical Staff First Name</th>
-                        <th>Medical Staff Last Name</th>
-                        <th>Medical Staff Email</th>
+                        <th>Receptionist First Name</th>
+                        <th>Receptionist Last Name</th>
+                        <th>Receptionist Email</th>
+                        <th>Receptionist Phone Number</th>
+                        <th>Receptionist Address</th>
+                        <th>Receptionist Emergency Contact</th>
+                        <th>Receptionist Emergency Contact Number</th>
+                        <th>Receptionist Gender</th>
                         <th>Update</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="MedStaff : ${listMedStaff}">
-                        <td th:text="${MedStaff.firstName}"></td>
-                        <td th:text="${MedStaff.lastName}"></td>
-                        <td th:text="${MedStaff.email}"></td>
-                        <td><a th:href="@{/formUpdate/{id}(id=${MedStaff.id})}">Update</a>
-                        <a id="delete" th:href="@{/deleteMedStaff/{id}(id=${MedStaff.id})}">Delete</a></td>
+                    <tr th:each="Receptionist : ${listReceptionist}">
+                         <td th:text="${Receptionist.firstName}"></td>
+                        <td th:text="${Receptionist.lastName}"></td>
+                        <td th:text="${Receptionist.email}"></td>
+                        <td th:text="${Receptionist.phone}"></td>
+                        <td th:text="${Receptionist.address}"></td>
+                        <td th:text="${Receptionist.emergencyContact}"></td>
+                        <td th:text="${Receptionist.emergencyContactNum}"></td>
+                        <td th:text="${Receptionist.gender}"></td>
+                        <td><a th:href="@{/formUpdateReceptionist/{id}(id=${Receptionist.id})}">Update</a>
+                        <a id="delete" th:href="@{/deleteReceptionist/{id}(id=${Receptionist.id})}">Delete</a></td>
                     </tr>
                 </tbody>
             </table>

@@ -6,6 +6,7 @@ package net.codejava.MedChart.Service;
 
 import net.codejava.MedChart.Repository.Patients_Repository;
 import java.util.List;
+import java.util.Optional;
 import net.codejava.MedChart.User.Patients;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,13 +22,30 @@ public class Patients_ServiceImpl implements Patients_Service{
     private Patients_Repository PatientsRepo;
     
     @Override
-    public List<Patients> getAllMedStaffs() {
+    public List<Patients> getAllPatients() {
         return PatientsRepo.findAll();
     }
 
     @Override
-    public void saveMedStaff(Patients Patients) {
+    public void savePatients(Patients Patients) {
         this.PatientsRepo.save(Patients);
+    }
+    
+    @Override
+    public Patients getPatientsById(long id) {
+        Optional<Patients> optional = PatientsRepo.findById(id);
+        Patients patient = null;
+        if (optional.isPresent()) {
+            patient = optional.get();
+        } else {
+            throw new RuntimeException("Patient not found for id:: " + id);
+        }
+        return patient;
+    }
+
+    @Override
+    public void deletePatients(long id) {
+        this.PatientsRepo.deleteById(id);
     }
     
 }

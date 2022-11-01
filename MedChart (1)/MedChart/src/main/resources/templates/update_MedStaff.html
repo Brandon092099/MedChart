@@ -15,24 +15,32 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <body>
         <div>
             <h1>Medical Staff</h1>
-            
+
             <hr>
-                <h2>Update Medical Staff</h2>
+            <h2>Update Medical Staff</h2>
 
-                <form action="#" th:action="@{/saveMedStaff}" th:object ="${medStaff}" method="POST">
-                    
-                    <!-- Hidden handle update-->
-                    <input type="hidden" th:field="*{id}"/>
-                    
-                    <input type="text" th:field="*{firstName}"></input>
+            <form action="#" th:action="@{/saveMedStaff}" th:object ="${medStaff}" method="POST">
 
-                        <input type="text" th:field="*{lastName}" > </input>
+                <!-- Hidden handle update-->
+                <input type="hidden" th:field="*{id}"/>
 
-                            <input type="text" th:field="*{email}" ></input>
+                <input type="text" th:field="*{firstName}"></input>
 
-                                <button type="submit"> Update Medical Staff</button>
-                                </form>
+                <input type="text" th:field="*{lastName}" > </input>
 
-                                </div>
+                <input type="text" th:field="*{email}" ></input>
+
+                <input type="text" th:field="*{phone}" placeholder="Medical Staff Phone Number"></input>
+
+                <input type="text" th:field="*{address}" placeholder="Medical Staff Address"></input>
+
+                <input type="text" th:field="*{emergencyContact}" placeholder="Medical Staff Emergency Contact"></input>
+
+                <input type="text" th:field="*{emergencyContactNum}" placeholder="Medical Staff Emergency Contact Number"></input>
+
+                <button type="submit"> Update Medical Staff</button>
+            </form>
+
+        </div>
     </body>
 </html>

@@ -10,9 +10,11 @@ import net.codejava.MedChart.User.Patients;
  */
 public interface Patients_Service {
     
-    List<Patients> getAllMedStaffs();
+    List<Patients> getAllPatients();
     
-    void saveMedStaff(Patients patients);
+    void savePatients(Patients patients);
     
+    Patients getPatientsById(long id);
     
+    void deletePatients(long id);
 }

@@ -27,24 +27,24 @@ public class Receptionist_ServiceImpl implements Receptionist_Service{
     }
 
     @Override
-    public void saveReceptionist(Receptionist medStaff) {
-        this.medRepo.save(medStaff);
+    public void saveReceptionist(Receptionist Receptionist) {
+        this.medRepo.save(Receptionist);
     }
 
     @Override
-    public Receptionist getMedStaffById(long id) {
+    public Receptionist getReceptionistById(long id) {
        Optional<Receptionist> optional = medRepo.findById(id);
-        Receptionist medStaff = null;
+        Receptionist recep = null;
         if (optional.isPresent()) {
-            medStaff = optional.get();
+            recep = optional.get();
         } else {
-            throw new RuntimeException("Medical Staff not found for id:: " + id);
+            throw new RuntimeException("Receptionist not found for id:: " + id);
         }
-        return medStaff;
+        return recep;
     }
 
     @Override
-    public void deleteMedStaff(long id) {
+    public void deleteReceptionist(long id) {
         this.medRepo.deleteById(id);
     }
 }

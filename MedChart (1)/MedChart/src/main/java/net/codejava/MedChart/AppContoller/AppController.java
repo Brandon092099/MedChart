@@ -31,6 +31,17 @@ public class AppController {
         return ("Login");
     }
     
+     @GetMapping("/admin/Home")
+    public String home() {
+        return "index";
+    }
+    
+     @GetMapping("/Patients")
+    public ModelAndView Patients() {
+        return new ModelAndView("Patients");
+    }
+    
+    
     @GetMapping("/Account_Settings")
     public ModelAndView Account_SettingsPage() {
         return new ModelAndView("Account_Settings");

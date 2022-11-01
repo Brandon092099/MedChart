@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html 
+    lang="en"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="../static/bootstrap.min.css" type="text/css"/>
+
+
+    </head>
+    <body>
+        <div>
+            <h1>Receptionist</h1>
+
+            <hr>
+            <h2>Save Receptionist</h2>
+
+            <form action="#" th:action="@{/saveReceptionist}" th:object ="${Receptionist}" method="POST">
+                <input type="text" field="*{firstName}" placeholder="Receptionist First Name"
+                       ></input>
+
+                <input type="text" field="*{lastName}" placeholder="Receptionist Last Name"></input>
+
+                <input type="text" field="*{email}" placeholder="Receptionist Email"></input>
+
+                <input type="text" field="*{phone}" placeholder="Receptionist Phone Number"></input>
+
+                <input type="text" field="*{address}" placeholder="Receptionist Address"></input>
+
+                <input type="text" field="*{emergencyContact}" placeholder="Receptionist Emergency Contact"></input>
+
+                <input type="text" field="*{emergencyContactNum}" placeholder="Receptionist Emergency Contact Number"></input>
+
+                <input type="text" field="*{gender}" placeholder="Receptionist Gender"></input>
+
+                <button type="submit"> Save Receptionist</button>
+            </form>
+
+        </div>
+    </body>
+</html>

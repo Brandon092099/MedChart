@@ -14,9 +14,9 @@ public interface Receptionist_Service {
     
     void saveReceptionist(Receptionist receptionist);
     
-    void deleteMedStaff(long id);
+    void deleteReceptionist(long id);
     
-    Receptionist getMedStaffById(long id);
+    Receptionist getReceptionistById(long id);
     
     
 }

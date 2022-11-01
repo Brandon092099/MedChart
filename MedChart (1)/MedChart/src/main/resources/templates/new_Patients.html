@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html 
+    lang="en"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Receptionist</title>
+        <link rel="stylesheet" href="../static/bootstrap.min.css" type="text/css"/>
+
+
+    </head>
+    <body>
+        <div>
+            <h1>Patients</h1>
+            
+            <hr>
+                <h2>Save Patients</h2>
+
+                <form action="#" th:action="@{/savePatients}" th:object ="${Patients}" method="POST">
+                    <input type="text" field="*{firstName}" placeholder="Patients First Name"
+                           ></input>
+
+                        <input type="text" field="*{lastName}" placeholder="Patients Last Name"></input>
+
+                            <input type="text" field="*{email}" placeholder="Patients Email"></input>
+                            
+                            <input type="text" field="*{phone}" placeholder="Patients Phone Number"></input>
+
+                            <input type="text" field="*{address}" placeholder="Patients Address"></input>
+
+                            <input type="text" field="*{emergencyContact}" placeholder="Patients Emergency Contact"></input>
+
+                            <input type="text" field="*{emergencyContactNum}" placeholder="Patients Emergency Contact Number"></input>
+                            
+                             <input type="text" field="*{gender}" placeholder="Patients Gender"></input>
+
+                                <button type="submit"> Save Patients</button>
+                                </form>
+
+                                </div>
+    </body>
+</html>

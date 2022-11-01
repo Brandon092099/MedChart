@@ -26,10 +26,10 @@ public class MedStaff_Controller {
     private MedStaff_Service MedService;
 
     //display list of MedStaff
-    @GetMapping("/index")
+    @GetMapping("/MedStaff")
     public String viewHomePage(Model model) {
         model.addAttribute("listMedStaff", MedService.getAllMedStaffs());
-        return "index";
+        return "MedStaff";
     }
 
     @GetMapping("/newMedStaffForm")
@@ -46,7 +46,7 @@ public class MedStaff_Controller {
 
         MedService.saveMedStaff(medstaff);
 
-        return "redirect:/index";
+        return "redirect:/MedStaff";
     }
 
     @GetMapping("/formUpdate/{id}")
@@ -63,7 +63,7 @@ public class MedStaff_Controller {
     public String deleteMedStaff(@PathVariable(value = "id") long id) {
         //call delete mthd
         this.MedService.deleteMedStaff(id);
-        return ("redirect:/index");
+        return ("redirect:/MedStaff");
     }
 }
 

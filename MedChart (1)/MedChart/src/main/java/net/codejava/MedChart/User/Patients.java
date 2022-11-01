@@ -23,38 +23,29 @@ public class Patients {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false, name = "first_Name", unique = false, length = 26)
+    @Column(name = "first_Name", unique = false, length = 26)
     private String firstName;
 
-    @Column(nullable = false, name = "last_Name", unique = false, length = 26)
+    @Column(name = "last_Name", unique = false, length = 26)
     private String lastName;
 
-    @Column(nullable = false, name = "email", unique = true, length = 50)
-    private String emial;
+    @Column(name = "email", unique = false, length = 26)
+    private String email;
 
-    @Column(nullable = false, name = "username", unique = false, length = 26)
-    private String username;
-
-    @Column(nullable = false, name = "phone_number", unique = false, length = 26)
+    @Column(name = "phone", unique = false, length = 26)
     private String phone;
 
-    @Column(nullable = false, name = "password", unique = false, length = 26)
-    private String password;
-
-    @Column(nullable = false, name = "address", unique = false, length = 26)
+    @Column(name = "address", unique = false, length = 26)
     private String address;
 
-    @Column(nullable = false, name = "emergency_contact", unique = false, length = 26)
+    @Column(name = "emergency_Contact", unique = false, length = 26)
     private String emergencyContact;
 
-    @Column(nullable = false, name = "emergency_number", unique = false, length = 26)
+    @Column(name = "emergency_Contact_Num", unique = false, length = 26)
     private String emergencyContactNum;
 
-    @Column(nullable = false, name = "gender", unique = false, length = 26)
+    @Column(name = "gender", unique = false, length = 26)
     private String gender;
-
-    @Column(nullable = false, name = "user_type", unique = false, length = 26)
-    private String userType;
 
     public long getId() {
         return id;
@@ -80,38 +71,24 @@ public class Patients {
         this.lastName = lastName;
     }
 
-    public String getEmial() {
-        return emial;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmial(String emial) {
-        this.emial = emial;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getUsername() {
-        return this.username;
-    }
-    public void setUsername(String username) {
-        this.username = username;
-    }
     public String getPhone() {
-        return this.phone;
+        return phone;
     }
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }    
-    
-    public String getPassword() {
-        return this.password;
-    }
-
-     public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getAddress() {
-        return this.address;
+        return address;
     }
 
     public void setAddress(String address) {
@@ -119,32 +96,29 @@ public class Patients {
     }
 
     public String getEmergencyContact() {
-        return this.emergencyContact;
+        return emergencyContact;
     }
 
     public void setEmergencyContact(String emergencyContact) {
         this.emergencyContact = emergencyContact;
     }
+
     public String getEmergencyContactNum() {
-        return this.emergencyContactNum;
+        return emergencyContactNum;
     }
 
     public void setEmergencyContactNum(String emergencyContactNum) {
         this.emergencyContactNum = emergencyContactNum;
     }
+
     public String getGender() {
-        return this.gender;
+        return gender;
     }
 
     public void setGender(String gender) {
         this.gender = gender;
     }
-    public String getUserType() {
-        return this.userType;
-    }
 
-    public void setUserType(String userType) {
-        this.userType = userType;
-    }
+   
 
 }
