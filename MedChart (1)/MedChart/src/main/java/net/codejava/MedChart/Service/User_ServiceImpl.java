@@ -27,9 +27,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class User_ServiceImpl implements User_Service {
 
-    @Lazy
-    @Autowired
-    private BCryptPasswordEncoder encoder;
+    
+
 
     @Autowired
     private User_Repository userRepo;
@@ -41,10 +40,9 @@ public class User_ServiceImpl implements User_Service {
     @Override
     public User save(User_Register_DTO registrationDTO) {
         
-         String passEncoded = encoder.encode(registrationDTO.getPassword());
-
+         
         User user = new User(registrationDTO.getFirstName(), registrationDTO.getLastName(),
-                registrationDTO.getEmail(), passEncoded, Arrays.asList(new Role("ROLE_USER")));
+                registrationDTO.getEmail(), registrationDTO.getPassword(), Arrays.asList(new Role("ROLE_USER")));
 
        
 

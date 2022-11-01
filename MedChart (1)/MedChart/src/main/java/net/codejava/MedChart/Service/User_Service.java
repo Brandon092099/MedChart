@@ -7,7 +7,6 @@ package net.codejava.MedChart.Service;
 import net.codejava.MedChart.DTO.User_Register_DTO;
 import net.codejava.MedChart.User.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
-//import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
  *

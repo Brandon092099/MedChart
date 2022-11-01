@@ -16,6 +16,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 /**
@@ -29,27 +30,22 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private User_Service userService;
     
-    @Autowired
-    DataSource dataSource;
-    
-    @Lazy
     @Bean
     public BCryptPasswordEncoder encoder(){
         return new BCryptPasswordEncoder();
     }
     
     @Bean
-    public DaoAuthenticationProvider authentication(){
+    public DaoAuthenticationProvider authenticationProvider(){
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
         auth.setUserDetailsService(userService);
         auth.setPasswordEncoder(encoder());
         return auth;
     }
     
-    @Autowired
     @Override
     protected void configure(AuthenticationManagerBuilder auth)throws Exception {
-        auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(encoder());
+        auth.authenticationProvider(authenticationProvider());
     }
 
     @Override
@@ -62,8 +58,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and().formLogin().loginPage("/Login").permitAll()
                 .and().logout().invalidateHttpSession(true)
                 .clearAuthentication(true)
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login?logout").permitAll();
+                .logoutRequestMatcher(new AntPathRequestMatcher("/Home"))
+                .logoutSuccessUrl("/Login").permitAll();
 
     }
 

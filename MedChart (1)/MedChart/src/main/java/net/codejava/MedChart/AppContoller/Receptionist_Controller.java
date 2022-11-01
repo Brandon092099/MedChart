@@ -24,13 +24,14 @@ public class Receptionist_Controller {
     
     @Autowired
     private Receptionist_Service MedService;
-    
+    /*
     //display list of Receptionist
     @GetMapping("/index")
     public String viewHomePage(Model model){
         model.addAttribute("listReceptionist", MedService.getAllReceptionist());
                 return "index";
     }
+    */
     
     @GetMapping("/newReceptionistForm")
     public String ReceptionistForm(Model model){
