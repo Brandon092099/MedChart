@@ -20,15 +20,12 @@ public class AppController {
     }
     
     
-    @GetMapping("/SignUp")
-    public ModelAndView SignupPage() {
-        return new ModelAndView("SignUp");
-    }
+
     
     
     @GetMapping("/Login")
-    public ModelAndView LoginPage() {
-        return new ModelAndView("Login");
+    public String LoginPage() {
+        return ("Login");
     }
     
     @GetMapping("/Account_Settings")

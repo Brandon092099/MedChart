@@ -96,17 +96,26 @@
     <div id="container">
       <div class="form-wrap">
         <h1>Login</h1>
-        <form>
+        <form th:action="@{/Login}" method="post">
+            <!--<!-- error message -->
+            <div th:if="${param.error}">
+                <div> Invalid username or password.</div>
+            </div>
+            
+            <!<!-- logout message -->
+            <div th:if="${param.logout}">
+                <div> Successfully Logged Out.</div>
+            </div>
           <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" />
+            <label for="username">Email</label>
+            <input type="text" name="username" id="username"  placeholder="Enter Email" autofocus="autofocus"/>
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" name="password" id="password" />
+            <input type="password" name="password" id="password" placeholder="Enter Password" autofocus="autofocus" />
           </div>
-          <input type="button" id="btn" onclick="parent.location='Home'" value="Login">
-          <input type="button" id="btn" onclick="parent.location='SignUp'" value="Signup">
+          <input type="submit" id="btn" onclick="parent.location='Home'" value="Login">
+          <input type="button" id="btn" onclick="parent.location='SignUp'" value="Signup"> 
         </form>
       </div>
       <footer>

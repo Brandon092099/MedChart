@@ -14,5 +14,7 @@ public interface MedStaff_Service {
     
     void saveMedStaff(MedStaff medStaff);
     
+    MedStaff getMedStaffById(long id);
     
+    void deleteMedStaff(long id);
 }

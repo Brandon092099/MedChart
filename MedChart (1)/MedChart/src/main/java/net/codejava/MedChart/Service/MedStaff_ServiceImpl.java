@@ -6,6 +6,7 @@ package net.codejava.MedChart.Service;
 
 import net.codejava.MedChart.Repository.MedStaff_Repository;
 import java.util.List;
+import java.util.Optional;
 import net.codejava.MedChart.User.MedStaff;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,23 @@ public class MedStaff_ServiceImpl implements MedStaff_Service{
     @Override
     public void saveMedStaff(MedStaff medStaff) {
         this.medRepo.save(medStaff);
+    }
+    
+    @Override
+    public MedStaff getMedStaffById(long id) {
+        Optional<MedStaff> optional = medRepo.findById(id);
+        MedStaff medStaff = null;
+        if (optional.isPresent()) {
+            medStaff = optional.get();
+        } else {
+            throw new RuntimeException("Medical Staff not found for id:: " + id);
+        }
+        return medStaff;
+    }
+
+    @Override
+    public void deleteMedStaff(long id) {
+        this.medRepo.deleteById(id);
     }
     
 }

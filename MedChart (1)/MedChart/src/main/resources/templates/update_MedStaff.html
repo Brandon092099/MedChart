@@ -11,28 +11,28 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta charset="UTF-8" />
         <title>Medical Staff</title>
         <link rel="stylesheet" href="../static/bootstrap.min.css" type="text/css"/>
-
-
     </head>
     <body>
         <div>
             <h1>Medical Staff</h1>
             
             <hr>
-                <h2>Save Medical Staff</h2>
+                <h2>Update Medical Staff</h2>
 
                 <form action="#" th:action="@{/saveMedStaff}" th:object ="${medStaff}" method="POST">
-                    <input type="text" th:field="*{firstName}" placeholder="Medical Staff First Name"
-                           ></input>
+                    
+                    <!-- Hidden handle update-->
+                    <input type="hidden" th:field="*{id}"/>
+                    
+                    <input type="text" th:field="*{firstName}"></input>
 
-                        <input type="text" th:field="*{lastName}" placeholder="Medical Staff Last Name"
-                              > </input>
+                        <input type="text" th:field="*{lastName}" > </input>
 
-                            <input type="text" th:field="*{email}" placeholder="Medical Staff email"></input>
+                            <input type="text" th:field="*{email}" ></input>
 
-                                <button type="submit"> Save Staff</button>
+                                <button type="submit"> Update Medical Staff</button>
                                 </form>
 
                                 </div>
-                                </body>
-                                </html>
+    </body>
+</html>

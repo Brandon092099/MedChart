@@ -1,0 +1,70 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package net.codejava.MedChart.config;
+
+import javax.sql.DataSource;
+import net.codejava.MedChart.Service.User_Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+/**
+ *
+ * @author amaya
+ */
+@Configuration
+@EnableWebSecurity
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+    
+    @Autowired
+    private User_Service userService;
+    
+    @Autowired
+    DataSource dataSource;
+    
+    @Lazy
+    @Bean
+    public BCryptPasswordEncoder encoder(){
+        return new BCryptPasswordEncoder();
+    }
+    
+    @Bean
+    public DaoAuthenticationProvider authentication(){
+        DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
+        auth.setUserDetailsService(userService);
+        auth.setPasswordEncoder(encoder());
+        return auth;
+    }
+    
+    @Autowired
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth)throws Exception {
+        auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(encoder());
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests().antMatchers(
+                "/SignUp**",
+                "/js/**",
+                "/css/**",
+                "/img/**").permitAll().anyRequest().authenticated()
+                .and().formLogin().loginPage("/Login").permitAll()
+                .and().logout().invalidateHttpSession(true)
+                .clearAuthentication(true)
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/login?logout").permitAll();
+
+    }
+
+}

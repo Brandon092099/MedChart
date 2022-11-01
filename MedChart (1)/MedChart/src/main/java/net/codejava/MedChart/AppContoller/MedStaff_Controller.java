@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 /**
@@ -20,32 +21,49 @@ import org.springframework.web.bind.annotation.PostMapping;
  */
 @Controller
 public class MedStaff_Controller {
-    
-    
+
     @Autowired
     private MedStaff_Service MedService;
-    
+
     //display list of MedStaff
     @GetMapping("/index")
-    public String viewHomePage(Model model){
+    public String viewHomePage(Model model) {
         model.addAttribute("listMedStaff", MedService.getAllMedStaffs());
-                return "index";
+        return "index";
     }
-    
+
     @GetMapping("/newMedStaffForm")
-    public String MedStaffForm(Model model){
+    public String MedStaffForm(Model model) {
         MedStaff medStaff = new MedStaff();
-        
+
         model.addAttribute("medStaff", medStaff);
-        
+
         return "new_MedStaff";
     }
-    
+
     @PostMapping("/saveMedStaff")
-    public String saveMedStaff(@ModelAttribute("medStaff") MedStaff medstaff){
-        
+    public String saveMedStaff(@ModelAttribute("medStaff") MedStaff medstaff) {
+
         MedService.saveMedStaff(medstaff);
-        
+
         return "redirect:/index";
     }
+
+    @GetMapping("/formUpdate/{id}")
+    public String FormUpdate(@PathVariable(value = "id") long id, Model model) {
+
+        MedStaff medStaff = MedService.getMedStaffById(id);
+
+        model.addAttribute("medStaff", medStaff);
+
+        return "update_MedStaff";
+    }
+
+    @GetMapping("/deleteMedStaff/{id}")
+    public String deleteMedStaff(@PathVariable(value = "id") long id) {
+        //call delete mthd
+        this.MedService.deleteMedStaff(id);
+        return ("redirect:/index");
+    }
 }
+

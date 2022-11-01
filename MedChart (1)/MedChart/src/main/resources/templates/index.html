@@ -12,19 +12,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta charset="UTF-8" />
         <title>Medical Staff</title>
         <link rel="stylesheet" href="../static/bootstrap.min.css" type="text/css"/>
+        
 
         
     </head>
     <body>
         <div class="container">
-            <a th:href ="@{/newMedStaffForm}" id="btn-primary"> Add Medical Staff </a>
             <h1> Medical Staff </h1>
+            
+            <a th:href ="@{/newMedStaffForm}" class="btn-primary"> Add Medical Staff </a>
+            
             <table border="2">
                 <thead>
                     <tr>
                         <th>MedStaff First Name</th>
                         <th>MedStaff Last Name</th>
                         <th>MedStaff Email</th>
+                        <th>Update</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,6 +36,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <td th:text="${MedStaff.firstName}"></td>
                         <td th:text="${MedStaff.lastName}"></td>
                         <td th:text="${MedStaff.email}"></td>
+                        <td><a th:href="@{/formUpdate/{id}(id=${MedStaff.id})}">Update</a>
+                        <a id="delete" th:href="@{/deleteMedStaff/{id}(id=${MedStaff.id})}">Delete</a></td>
                     </tr>
                 </tbody>
             </table>
