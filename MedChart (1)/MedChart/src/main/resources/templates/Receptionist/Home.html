@@ -1,0 +1,161 @@
+<!doctype html>
+<html
+    lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+    <head>
+        <title>MedChart</title>
+        <meta charset="utf-8">
+            
+
+            <style>
+
+                #header {
+                    margin: 0;
+                    padding: 0;
+                    background: #4c6ca0;
+                    border-radius: 10px;
+                    overflow: auto;
+                }
+
+                #header li {
+                    list-style: none;
+                    float: left;
+                }
+
+                #header li a {
+                    display: block;
+                    color: #fff;
+                    text-decoration: none;
+                    padding: 15px 20px;
+                }
+
+                #header li a:hover {
+                    background-color: #446190;
+                    color: #f4f4f4;
+                }
+
+                .btn {
+                    background: #4c6ca0;
+                    color: black;
+                    border: none;
+                    font-size: 16px;
+                    padding: 10px 20px;
+                    border-radius: 10px;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    cursor:pointer;
+                }
+
+                .btn:hover {
+                    background: black;
+                    color: yellowgreen;
+                }
+
+                #main{
+                    clear: both;
+                    display: table;
+                    margin-top: 3px;
+                }
+                
+                #spacer{
+                    margin-right: 4px;
+                }
+
+                #Info {
+                    display: table-cell;
+                    color: brown;
+                    background-color: whitesmoke;
+                    border: 3px solid grey;
+                    border-radius: 10px;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    padding: 10px;
+
+                }
+                
+                
+
+                #sidebar {
+                    display: table-cell;
+                    width: 300px;
+                    background-color: whitesmoke;
+                    border: 3px solid grey;
+                    border-radius: 10px;
+                    color: brown;
+                    
+                }
+
+                .sidebar ul {
+                    color: purple;
+                }
+
+                .sidebar li a:hover {
+                    color: orange;
+                }
+
+
+
+            </style>
+    </head>
+    <body>
+        <!-- body content goes here -->
+
+        <div id="header">  <!-- Header -->
+            <ul>
+                <li><a href="Home">Home</a></li>
+                <li><a href="Medical_Status">Medical Status</a></li>
+                <li><a href="Test_Results">Test Results</a></li>
+                <li><a href="Messages">Messages</a></li>
+                <li><a href="Check_In">Check In</a></li>
+                <li><a href="Room_Management">Room Management</a></li>
+                <li><a href="Account_Settings">Account Settings</a></li>
+                <li><a href="Assistance">Assistance</a></li>
+                <li><a href="Login">Logout</a></li>
+            </ul>
+
+        </div>
+        
+        
+        <div id="main"> <!-- main -->
+            
+             <div id="spacer" > <!<!-- spacer -->
+            <div id="Info"> <!-- main content -->
+
+                <h1 id="news">News<h2>
+                        <h3>Covid-19 Boosters Available Now!</h3>
+                        <p>
+                            Covid-19 boosters are readily available at your local hospital! Reach out to a receptionist for information!
+                        </p>
+                        <img src="https://news.gsu.edu/files/2022/05/iStock-1230251561.jpg" alt="Covid Booster Shot" width="450px" height="250px"> 
+
+                            </div> <!<!-- spacer end -->
+                            
+                            </div> <!-- end of info -->
+        
+
+                            
+                            <div id="sidebar">
+                                <h2>Appointments</h2>
+
+                                <ul>
+                                    <li><a href="">schedule</a></li>
+                                    <li><a href=""> upcoming<br> appointments</a></li>
+                                    <li><a href=""> cancel<br> appointment</a></li>
+                                    <li><a href=""> reschedule<br> appointment</a></li>
+                                </ul>
+
+                                <h2>Billing</h2>
+                                <ul>
+                                    <li><a href=""> make a payment</a></li>
+                                    <li><a href=""> Financial aid</a></li>
+                                    <li><a href="">payment plan</a></li>
+                                </ul>
+                            </div> <!-- end of side -->
+                            
+
+                            </div> <!-- end of body -->
+
+
+                            </body>
+                            </html>

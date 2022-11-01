@@ -4,8 +4,8 @@
  */
 package net.codejava.MedChart;
 
-import net.codejava.MedChart.User.User;
-import net.codejava.MedChart.User.User_Repository;
+//import net.codejava.MedChart.User.User;
+//import net.codejava.MedChart.User.User_Repository;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
