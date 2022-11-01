@@ -1,0 +1,120 @@
+<!doctype html>
+<html
+    lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+    <head>
+        <title>Room Management</title>
+        <meta charset="utf-8">
+
+            <style>
+
+                #header {
+                    margin: 0;
+                    padding: 0;
+                    background: #4c6ca0;
+                    border-radius: 10px;
+                    overflow: auto;
+                }
+
+                table, th, td {
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                    padding: 25px;
+                    margin: 50px;
+                }
+
+                #header li {
+                    list-style: none;
+                    float: left;
+                }
+
+                #header li a {
+                    display: block;
+                    color: #fff;
+                    text-decoration: none;
+                    padding: 15px 20px;
+                }
+
+                #header li a:hover {
+                    background-color: #446190;
+                    color: #f4f4f4;
+                }
+
+                #main{
+                    clear: both;
+                    display: table;
+                }
+
+                #Info {
+                    display: table-cell;
+                }
+
+                #sidebar {
+                    display: table-cell;
+                    width: 300px;
+                }
+
+            </style>
+    </head>
+    <body>
+        <!-- body content goes here -->
+        <div id="header">
+            <ul>
+                <li><a href="Home">Home</a></li>
+                <li><a href="Medical_Status">Medical Status</a></li>
+                <li><a href="Test_Results">Test Results</a></li>
+                <li><a href="Messages">Messages</a></li>
+                <li><a href="Check_In">Check In</a></li>
+                <li><a href="Room_Management">Room Management</a></li>
+                <li><a href="Account_Settings">Account Settings</a></li>
+                <li><a href="Assistance">Assistance</a></li>
+                <li><a href="Login">Logout</a></li>
+            </ul>
+        </div>
+
+        <div id="main"> <!-- main -->
+
+            <div id="Info"> <!-- main content -->
+
+                <table>
+                    <tr>
+                        <th>Room Number</th>
+                        <th>Full Status</th>
+                        <th>Clean Status</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>201</td>
+                        <td><input type="radio" id="filled" name="filled" value="FILLED">
+                                <label for="html">Empty</label><br>
+                                    <input type="radio" id="empty" name="filled" value="EMPTY">
+                                        <label for="css">Full</label><br></td>
+                                            <td><input type="radio" id="html" name="fav_language" value="HTML">
+                                                    <label for="html">Clean</label><br>
+                                                        <input type="radio" id="css" name="fav_language" value="CSS">
+                                                            <label for="css">Dirty</label><br></td>
+                                                                <td>Room is clean and ready for patient.</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>308</td>
+                                                                    <td>Full</td>
+                                                                    <td>Occupied</td>
+                                                                    <td>Room currently contains stable patient.</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>403</td>
+                                                                    <td>Empty</td>
+                                                                    <td>Not Clean</td>
+                                                                    <td>Room is empty, but it has not yet been cleaned.</td>
+                                                                </tr>
+                                                                </table>
+                                                                </div>
+
+                                                                </div>
+
+
+                                                                </body>
+                                                                </html>

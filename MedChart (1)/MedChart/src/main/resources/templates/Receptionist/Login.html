@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html 
+    lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
   <head>
     <meta charset="UTF-8" />
-    <title>Sign Up</title>
-
+    <title>Login</title>
 
     <style>
-      * {
+     * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
@@ -27,12 +30,14 @@
         margin: 30px auto;
         max-width: 400px;
         padding: 20px;
+        
       }
 
       .form-wrap {
         background: #fff;
         padding: 15px 20px;
         color: #333;
+        border-radius: 10px;
       }
 
       .form-wrap h1, .form-wrap p {
@@ -56,11 +61,18 @@
 
       }
 
-
-
       .form-wrap .bottom-text {
        font-size: 13px;
        margin-top: 20px;
+      }
+
+      footer {
+       text-align: center;
+       margin-top: 10px;
+      }
+
+      footer a {
+        color: #49c1a2;
       }
 
       #btn{
@@ -78,29 +90,13 @@
         background: #007FBB;
       }
 
-      footer {
-       text-align: center;
-       margin-top: 10px;
-      }
-
-      footer a {
-        color: #49c1a2;
-      }
     </style>
   </head>
   <body>
     <div id="container">
       <div class="form-wrap">
-        <h1>Sign Up</h1>
+        <h1>Login</h1>
         <form>
-          <div class="form-group">
-            <label for="first-name">First Name</label>
-            <input type="text" name="firstName" id="first-name" />
-          </div>
-          <div class="form-group">
-            <label for="last-name">Last Name</label>
-            <input type="text" name="lastName" id="last-name" />
-          </div>
           <div class="form-group">
             <label for="email">Email</label>
             <input type="email" name="email" id="email" />
@@ -109,20 +105,12 @@
             <label for="password">Password</label>
             <input type="password" name="password" id="password" />
           </div>
-          <div class="form-group">
-            <label for="password2">Confirm Password</label>
-            <input type="password" name="pasword2" id="password2" />
-          </div>
-          <input type="button" id="btn" onclick="parent.location='SignUp.html'" value="Signup">
-          <p class="bottom-text">
-            By clicking the Sign Up button, you agree to our
-            <a href="#">Terms & Conditions</a> and
-            <a href="#">Privacy Policy</a>
-          </p>
+          <input type="button" id="btn" onclick="parent.location='Home'" value="Login">
+          <input type="button" id="btn" onclick="parent.location='SignUp'" value="Signup">
         </form>
       </div>
       <footer>
-        <p>Already have an account? <a href="Login.html">Login Here</a></p>
+        <p><a href="#">Forgot Password?</a></p>
       </footer>
     </div>
   </body>
