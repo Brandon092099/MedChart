@@ -27,8 +27,8 @@ public class Patients_ServiceImpl implements Patients_Service{
     }
 
     @Override
-    public void savePatients(Patients Patients) {
-        this.PatientsRepo.save(Patients);
+    public void savePatients(Patients patients) {
+        this.PatientsRepo.save(patients);
     }
     
     @Override

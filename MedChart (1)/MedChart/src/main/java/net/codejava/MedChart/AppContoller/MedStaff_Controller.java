@@ -26,13 +26,13 @@ public class MedStaff_Controller {
     private MedStaff_Service MedService;
 
     //display list of MedStaff
-    @GetMapping("/MedStaff")
+    @GetMapping("/admin/MedStaff")
     public String viewHomePage(Model model) {
         model.addAttribute("listMedStaff", MedService.getAllMedStaffs());
         return "MedStaff";
     }
 
-    @GetMapping("/newMedStaffForm")
+    @GetMapping("/admin/newMedStaffForm")
     public String MedStaffForm(Model model) {
         MedStaff medStaff = new MedStaff();
 
@@ -41,12 +41,22 @@ public class MedStaff_Controller {
         return "new_MedStaff";
     }
 
-    @PostMapping("/saveMedStaff")
+    @PostMapping("/admin/saveMedStaff")
     public String saveMedStaff(@ModelAttribute("medStaff") MedStaff medstaff) {
 
+        //save to database
         MedService.saveMedStaff(medstaff);
 
-        return "redirect:/MedStaff";
+        return "redirect:/admin/MedStaff?success";
+    }
+    
+    @PostMapping("/admin/updateMedStaff")
+    public String updateMedStaff(@ModelAttribute("medStaff") MedStaff medstaff) {
+
+        //save to database
+        MedService.saveMedStaff(medstaff);
+
+        return "redirect:/admin/MedStaff?update";
     }
 
     @GetMapping("/formUpdate/{id}")
@@ -63,7 +73,7 @@ public class MedStaff_Controller {
     public String deleteMedStaff(@PathVariable(value = "id") long id) {
         //call delete mthd
         this.MedService.deleteMedStaff(id);
-        return ("redirect:/MedStaff");
+        return ("redirect:/admin/MedStaff?delete");
     }
 }
 

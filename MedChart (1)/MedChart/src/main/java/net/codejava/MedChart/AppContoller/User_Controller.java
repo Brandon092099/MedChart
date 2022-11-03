@@ -24,7 +24,7 @@ public class User_Controller {
         this.userService = userService;
     }
 
-    @ModelAttribute("User")
+    @ModelAttribute("user")
     public User_Register_DTO userDTO() {
         return new User_Register_DTO();
     }
@@ -35,10 +35,10 @@ public class User_Controller {
     }
 
     @PostMapping
-    public String registerAccount(@ModelAttribute("User") User_Register_DTO registerDTO) {
+    public String registerAccount(@ModelAttribute("user") User_Register_DTO registerDTO) {
 
         userService.save(registerDTO);
-        return "redirect:/SignUp?successs";
+        return "redirect:/SignUp?success";
     }
 
 }

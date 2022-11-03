@@ -19,21 +19,21 @@ import org.springframework.stereotype.Service;
 public class Receptionist_ServiceImpl implements Receptionist_Service{
 
     @Autowired
-    private Receptionist_Repository medRepo;
+    private Receptionist_Repository RecepRepo;
     
     @Override
     public List<Receptionist> getAllReceptionist() {
-        return medRepo.findAll();
+        return RecepRepo.findAll();
     }
 
     @Override
-    public void saveReceptionist(Receptionist Receptionist) {
-        this.medRepo.save(Receptionist);
+    public void saveReceptionist(Receptionist receptionist) {
+        this.RecepRepo.save(receptionist);
     }
 
     @Override
     public Receptionist getReceptionistById(long id) {
-       Optional<Receptionist> optional = medRepo.findById(id);
+       Optional<Receptionist> optional = RecepRepo.findById(id);
         Receptionist recep = null;
         if (optional.isPresent()) {
             recep = optional.get();
@@ -45,6 +45,6 @@ public class Receptionist_ServiceImpl implements Receptionist_Service{
 
     @Override
     public void deleteReceptionist(long id) {
-        this.medRepo.deleteById(id);
+        this.RecepRepo.deleteById(id);
     }
 }

@@ -20,49 +20,55 @@ import org.springframework.web.bind.annotation.PostMapping;
  */
 @Controller
 public class Receptionist_Controller {
-    
-    
+
     @Autowired
     private Receptionist_Service RecepService;
-    
+
     //display list of Receptionist
-    @GetMapping("/Receptionist")
-    public String view_HomePage(Model model){
+    @GetMapping("/admin/Receptionist")
+    public String view_HomePage(Model model) {
         model.addAttribute("listReceptionist", RecepService.getAllReceptionist());
-                return "Receptionist";
+        return "Receptionist";
     }
-    
-    
-    @GetMapping("/newReceptionistForm")
-    public String ReceptionistForm(Model model){
+
+    @GetMapping("/admin/newReceptionistForm")
+    public String ReceptionistForm(Model model) {
         Receptionist receptionist = new Receptionist();
-        
+
         model.addAttribute("receptionist", receptionist);
-        
+
         return "new_Receptionist";
     }
-    
-    @PostMapping("/saveReceptionist")
-    public String saveReceptionist(@ModelAttribute("receptionist") Receptionist receptionist){
-        
+
+    @PostMapping("/admin/saveReceptionist")
+    public String saveReceptionist(@ModelAttribute("receptionist") Receptionist receptionist) {
+
         RecepService.saveReceptionist(receptionist);
-        
-        return "redirect:/Receptionist";
+
+        return "redirect:/admin/Receptionist?success";
     }
     
+     @PostMapping("/admin/updateReceptionist")
+    public String updateReceptionist(@ModelAttribute("receptionist") Receptionist receptionist) {
+
+        RecepService.saveReceptionist(receptionist);
+
+        return "redirect:/admin/Receptionist?update";
+    }
+
     @GetMapping("/deleteReceptionist/{id}")
     public String deleteReceptionist(@PathVariable(value = "id") long id) {
         //call delete mthd
         this.RecepService.deleteReceptionist(id);
-        return ("redirect:/Receptionist");
+        return ("redirect:/admin/Receptionist?delete");
     }
-    
+
     @GetMapping("/formUpdateReceptionist/{id}")
     public String FormUpdate(@PathVariable(value = "id") long id, Model model) {
 
-        Receptionist Receptionist = RecepService.getReceptionistById(id);
+        Receptionist receptionist = RecepService.getReceptionistById(id);
 
-        model.addAttribute("Receptionist", Receptionist);
+        model.addAttribute("receptionist", receptionist);
 
         return "update_Receptionist";
     }

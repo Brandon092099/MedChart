@@ -29,23 +29,41 @@ public class MedStaff {
     @Column(name = "last_Name", unique = false, length = 26)
     private String lastName;
 
-    @Column(name = "email", unique = false, length = 26)
+    @Column(name = "email", unique = false, length = 50)
     private String email;
 
     @Column(name = "phone", unique = false, length = 26)
     private String phone;
 
-    @Column(name = "address", unique = false, length = 26)
+    @Column(name = "address", unique = false, length = 100)
     private String address;
 
     @Column(name = "emergency_Contact", unique = false, length = 26)
     private String emergencyContact;
 
-    @Column(name = "emergency_Contact_Num", unique = false, length = 26)
+    @Column(name = "emergency_Contact_Num", unique = false, length = 50)
     private String emergencyContactNum;
 
     @Column(name = "gender", unique = false, length = 26)
     private String gender;
+    
+    public MedStaff(){
+        
+    }
+
+    public MedStaff(long id, String firstName, String lastName, String email, String phone, String address, String emergencyContact, String emergencyContactNum, String gender) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.emergencyContact = emergencyContact;
+        this.emergencyContactNum = emergencyContactNum;
+        this.gender = gender;
+    }
+    
+    
 
     public long getId() {
         return id;

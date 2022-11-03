@@ -8,6 +8,7 @@ import net.codejava.MedChart.Service.Patients_Service;
 import net.codejava.MedChart.User.MedStaff;
 import net.codejava.MedChart.User.Patients;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,43 +19,52 @@ import org.springframework.web.bind.annotation.PostMapping;
  *
  * @author amaya
  */
+@Controller
 public class Patients_Controller {
-    
+   
      @Autowired
-    private Patients_Service MedService;
+    private Patients_Service PatientService;
      
      
     //display list of Patients
-    @GetMapping("/Patients")
+    @GetMapping("/admin/Patients")
     public String HomePage(Model model){
-        model.addAttribute("listPatients", MedService.getAllPatients());
+        model.addAttribute("listPatients", PatientService.getAllPatients());
                 return "Patients";
     }
     
     
-    @GetMapping("/newPatientsForm")
+    @GetMapping("/admin/newPatientsForm")
     public String ReceptionistForm(Model model){
-        Patients Patients = new Patients();
+        Patients patients = new Patients();
         
-        model.addAttribute("Patients", Patients);
+        model.addAttribute("patients", patients);
         
         return "new_Patients";
     }
     
-    @PostMapping("/savePatients")
-    public String savePatients(@ModelAttribute("Patients") Patients Patients){
+    @PostMapping("/admin/savePatients")
+    public String savePatients(@ModelAttribute("patients") Patients patients){
         
-        MedService.savePatients(Patients);
+        PatientService.savePatients(patients);
         
-        return "redirect:/Patients";
+        return "redirect:/admin/Patients?success";
+    }
+    
+    @PostMapping("/admin/updatePatients")
+    public String updatePatients(@ModelAttribute("patients") Patients patients){
+        
+        PatientService.savePatients(patients);
+        
+        return "redirect:/admin/Patients?update";
     }
     
     @GetMapping("/formUpdatePatients/{id}")
     public String FormUpdate(@PathVariable(value = "id") long id, Model model) {
 
-        Patients Patients = MedService.getPatientsById(id);
+        Patients Patients = PatientService.getPatientsById(id);
 
-        model.addAttribute("medStaff", Patients);
+        model.addAttribute("patients", Patients);
 
         return "update_Patients";
     }
@@ -62,7 +72,7 @@ public class Patients_Controller {
     @GetMapping("/deletePatients/{id}")
     public String deleteMedStaff(@PathVariable(value = "id") long id) {
         //call delete mthd
-        this.MedService.deletePatients(id);
-        return ("redirect:/Patients");
+        this.PatientService.deletePatients(id);
+        return ("redirect:/admin/Patients?delete");
     }
 }

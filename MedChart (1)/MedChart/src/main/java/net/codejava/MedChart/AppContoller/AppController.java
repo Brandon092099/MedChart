@@ -4,9 +4,15 @@
  */
 package net.codejava.MedChart.AppContoller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  *
@@ -23,22 +29,18 @@ public class AppController {
     public ModelAndView SignupPage() {
         return new ModelAndView("SignUp");
     }
-
     
     
     @GetMapping("/Login")
     public String LoginPage() {
-        return ("Login");
+        return "Login";
     }
     
-     @GetMapping("/admin/Home")
+  
+    
+     @GetMapping("/admin/Home") 
     public String home() {
         return "index";
-    }
-    
-     @GetMapping("/Patients")
-    public ModelAndView Patients() {
-        return new ModelAndView("Patients");
     }
     
     
