@@ -22,14 +22,14 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String Name;
+    private String name;
 
      public Role(){
     
 }
     
-    public Role(String Name) {
-        this.Name = Name;
+    public Role(String name) {
+        this.name = name;
     }
 
     public Long getId() {
@@ -41,11 +41,11 @@ public class Role {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
-    public void setName(String Name) {
-        this.Name = Name;
+    public void setName(String name) {
+        this.name = name;
     }
     
 }

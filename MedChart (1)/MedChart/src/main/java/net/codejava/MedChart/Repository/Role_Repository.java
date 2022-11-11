@@ -4,7 +4,7 @@
  */
 package net.codejava.MedChart.Repository;
 
-import net.codejava.MedChart.User.Receptionist;
+import net.codejava.MedChart.User.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
  * @author amaya
  */
 @Repository
-public interface Receptionist_Repository extends JpaRepository<Receptionist, Long> {
-   Receptionist findByEmail(String email);
+public interface Role_Repository extends JpaRepository<Role, Long> {
+    Role findByName(String name);
 }

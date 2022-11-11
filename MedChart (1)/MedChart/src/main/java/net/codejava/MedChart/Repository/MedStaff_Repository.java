@@ -14,5 +14,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface MedStaff_Repository extends JpaRepository<MedStaff, Long> {
-    
+   MedStaff findByEmail(String email);
 }
