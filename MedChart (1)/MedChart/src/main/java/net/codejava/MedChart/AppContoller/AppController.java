@@ -43,6 +43,11 @@ public class AppController {
         return "index";
     }
     
+    @GetMapping("/medStaff/Home") 
+    public String medStaffhome() {
+        return "medStaffHome";
+    }
+    
     
     @GetMapping("/Account_Settings")
     public ModelAndView Account_SettingsPage() {

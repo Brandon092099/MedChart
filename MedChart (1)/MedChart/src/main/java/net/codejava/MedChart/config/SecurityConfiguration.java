@@ -4,7 +4,6 @@
  */
 package net.codejava.MedChart.config;
 
-import javax.sql.DataSource;
 import net.codejava.MedChart.Service.User_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -16,8 +15,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
 
 /**
  *
@@ -29,6 +28,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     
     @Autowired
     private User_Service userService;
+    
+    @Autowired
+    private CustomLoginSuccessHandler successHandler;
+
     
     @Lazy
     @Bean
@@ -49,19 +52,24 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.authenticationProvider(authenticationProvider());
     }
 
+    
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers(
+        http.authorizeRequests()
+                .antMatchers(
                 "/SignUp**",
                 "/js/**",
                 "/css/**",
                 "/img/**").permitAll()
-                .antMatchers("/admin").hasRole("Admin")
-                .antMatchers("/medStaff").hasRole("Medical Staff")
-                .antMatchers("/receptionist").hasRole("Receptionist")
-                .antMatchers("/patient").hasRole("Patient")
+                .antMatchers("/admin/**").hasAuthority("Admin")
+                .antMatchers("/medStaff/**").hasAuthority("Medical Staff")
+                .antMatchers("/receptionist/**").hasAuthority("Receptionist")
+                .antMatchers("/patient/**").hasAuthority("Patient")
+                .anyRequest().authenticated()
                 .and()
-                .formLogin().loginPage("/Login").permitAll()
+                .formLogin().loginPage("/Login")
+                .successHandler(successHandler)
+                .permitAll()
                 .and().logout().invalidateHttpSession(true)
                 .clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))

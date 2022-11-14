@@ -48,6 +48,7 @@ public class User_ServiceImpl implements User_Service {
 
     @Autowired
     private BCryptPasswordEncoder passencoder;
+    
 
     public User_ServiceImpl(User_Repository userRepo) {
         this.userRepo = userRepo;
@@ -88,13 +89,13 @@ public class User_ServiceImpl implements User_Service {
         if (medStaffRepo.findByEmail(registrationDTO.getEmail()) != null) {
             user.setRoles(Arrays.asList(role2));
         }
-        if (patientRepo.findByEmail(registrationDTO.getEmail()) != null) {
+        else if (patientRepo.findByEmail(registrationDTO.getEmail()) != null) {
         user.setRoles(Arrays.asList(role4));
         }
-        if (recepRepo.findByEmail(registrationDTO.getEmail()) != null){
+        else if (recepRepo.findByEmail(registrationDTO.getEmail()) != null){
             user.setRoles(Arrays.asList(role3));
         }
-        if(medStaffRepo.findByEmail(registrationDTO.getEmail()) == null &&
+        else if(medStaffRepo.findByEmail(registrationDTO.getEmail()) == null &&
                 patientRepo.findByEmail(registrationDTO.getEmail()) == null &&
                 recepRepo.findByEmail(registrationDTO.getEmail()) == null){
             user.setRoles(Arrays.asList(role));
@@ -110,7 +111,7 @@ public class User_ServiceImpl implements User_Service {
         if (user == null) {
             throw new UsernameNotFoundException("Invaild username or password.");
         }
-        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), mapRolesToAuthorities(user.getRoles()));
+        return new org.springframework.security.core.userdetails.User(user.getFirstName().concat(" " + user.getLastName()), user.getPassword(), mapRolesToAuthorities(user.getRoles()));
     }
 
     private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
@@ -122,5 +123,6 @@ public class User_ServiceImpl implements User_Service {
         role.setName(name);
         return roleRepo.save(role);
     }
+    
 
 }

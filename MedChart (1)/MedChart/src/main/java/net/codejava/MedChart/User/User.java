@@ -5,6 +5,7 @@
 package net.codejava.MedChart.User;
 
 import java.util.Collection;
+import java.util.Iterator;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
