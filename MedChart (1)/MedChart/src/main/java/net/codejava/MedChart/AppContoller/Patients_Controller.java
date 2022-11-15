@@ -5,7 +5,6 @@
 package net.codejava.MedChart.AppContoller;
 
 import net.codejava.MedChart.Service.Patients_Service;
-import net.codejava.MedChart.User.MedStaff;
 import net.codejava.MedChart.User.Patients;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -74,5 +73,20 @@ public class Patients_Controller {
         //call delete mthd
         this.PatientService.deletePatients(id);
         return ("redirect:/admin/Patients?delete");
+    }
+    
+    @GetMapping("/patient/Home")
+    public String PatientHomePage(Model model){
+                return "Patient_Home";
+    }
+    
+    @GetMapping("/patient/Patient_Account_Settings")
+    public String PatientAccountSettings(Model model){
+                return "Patient_Account_Settings_1";
+    }
+    
+    @GetMapping("/patient/Patient_Medical_Status")
+    public String PatientMedicalStatus(Model model){
+                return "Patient_Medical_Status";
     }
 }
