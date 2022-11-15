@@ -19,95 +19,95 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
       crossorigin="anonymous"/>
 
 
-        <style>
+      <style>
 
-            #header {
-                margin-left: 5px;
-                margin-top: 10px; 
-                margin-right: 5px;
-                padding: 0;
-                background: #4c6ca0;
-                border-radius: 10px;
-                overflow: auto;
-            }
+        #header {
+            margin-left: 5px;
+            margin-top: 10px;
+            margin-right: 5px;
+            padding: 0;
+            background: #4c6ca0;
+            border-radius: 10px;
+            overflow: auto;
+        }
 
-            #header li {
-                list-style: none;
-                float: left;
-            }
+        #header li {
+            list-style: none;
+            float: left;
+        }
 
-            #header li a {
-                display: block;
-                color: #fff;
-                text-decoration: none;
-                padding: 15px 20px;
-            }
+        #header li a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 20px;
+        }
 
-            #header li a:hover {
-                background-color: #446190;
-                color: #f4f4f4;
-            }
+        #header li a:hover {
+            background-color: #446190;
+            color: #f4f4f4;
+        }
 
-            .btn {
-                background: #4c6ca0;
-                color: black;
-                border: none;
-                font-size: 16px;
-                padding: 10px 20px;
-                border-radius: 10px;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                cursor:pointer;
-            }
+     
+        
 
-            .btn:hover {
-                background: black;
-                color: yellowgreen;
-            }
+        
 
-            #main{
-                clear: both;
-                display: table;
-                margin-top: 3px;
-            }
+        #main{
+            clear: both;
+            display: table;
+            margin-top: 3px;
+        }
 
-            #spacer{
-                margin-right: 4px;
-            }
+        #spacer{
+            margin-right: 4px;
+        }
 
-            #Info {
-                display: table-cell;
-                color: brown;
-                background-color: whitesmoke;
-                border: 3px solid grey;
-                border-radius: 10px;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                padding: 10px;
+        #Info {
+            display: table-cell;
+            color: brown;
+            background-color: whitesmoke;
+            border: 3px solid grey;
+            border-radius: 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 10px;
 
-            }
+        }
 
 
 
-            #sidebar {
-                display: table-cell;
-                width: 300px;
-                background-color: whitesmoke;
-                border: 3px solid grey;
-                border-radius: 10px;
-                color: brown;
+        #sidebar {
+            display: table-cell;
+            width: 300px;
+            background-color: whitesmoke;
+            border: 3px solid grey;
+            border-radius: 10px;
+            color: brown;
 
-            }
+        }
 
-            .sidebar ul {
-                color: purple;
-            }
+        .sidebar ul {
+            color: purple;
+        }
 
-            .sidebar li a:hover {
-                color: orange;
-            }
+        .sidebar li a:hover {
+            color: orange;
+        }
+        
+        #medChartbtn {
+            background-color: rgba(101, 165, 207, 0.822);
+            border: rgba(101, 165, 207, 0.822);
+            cursor:pointer;
+            margin-bottom: 10px;
+        }
+        
+        #medChartbtn:hover {
+            background: #005e8a;
+        }
 
 
 
-        </style>
+    </style>
 
     </head>
     <body>
@@ -122,15 +122,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         </div>
 
         <div class="container">
-            <h1> Medical Staff </h1>
+            <h1> Medical Status </h1>
 
             <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${param.success}">
-                <p>Successfully Added Medical Staff</p>
+                <p>Successfully Added Medical Status</p>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
 
             <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${param.update}">
-                <p>Successfully Updated Medical Staff</p>
+                <p>Successfully Updated Medical Status</p>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
 
@@ -139,14 +139,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
 
-            <a id="medChartbtn" th:href ="@{/medStaff/newMedStatusForm}" class="btn btn-primary"> Add Medical Staff </a>
+            <a id="medChartbtn" th:href ="@{/medStaff/newMedStatusForm}" class="btn btn-primary"> Add Medical Status </a>
 
             <table class="table table-bordered" >
                 <thead class="table-Secondary">
                     <tr>
                         <th>Patient First Name</th>
-                        <th>Medical Staff Last Name</th>
-                       
+                        <th>Patient Last Name</th>
+                        <th>DOB</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Notes</th>
                         <th>Update</th>
                     </tr>
                 </thead>

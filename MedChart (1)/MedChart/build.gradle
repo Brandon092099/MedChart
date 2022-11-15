@@ -19,6 +19,7 @@ configurations {
 
 repositories {
 	maven { url 'https://repo.spring.io/release' }
+	maven { url 'https://jitpack.io' }
 	mavenCentral()
        
 }
@@ -35,8 +36,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	testImplementation 'org.springframework.security:spring-security-test'
         implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5:3.0.4.RELEASE'
-        
-
+		implementation 'com.github.KwabenBerko:News-API-Java:1.0.2'
+	implementation 'org.springframework.boot:spring-boot-configuration-processor'
         
 }
 
