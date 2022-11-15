@@ -1,3 +1,151 @@
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html
+    lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Account Settings</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" 
+              rel="stylesheet" 
+              integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" 
+              crossorigin="anonymous"/>
+
+        <style>
+#header {
+                    margin: 0;
+                    padding: 0;
+                    background: #4c6ca0;
+                    border-radius: 10px;
+                    overflow: auto;
+                }
+
+                #header li {
+                    list-style: none;
+                    float: left;
+                }
+
+                #header li a {
+                    display: block;
+                    color: #fff;
+                    text-decoration: none;
+                    padding: 15px 20px;
+                }
+
+                #header li a:hover {
+                    background-color: #446190;
+                    color: #f4f4f4;
+                }
+
+                #main{
+                    clear: both;
+                    display: table;
+                }
+
+                #Info {
+                    display: table-cell;
+                    padding: 10px;
+                }
+
+                #sidebar {
+                    display: table-cell;
+                    width: 300px;
+                }
+
+                input {
+                    padding: 50px;
+                    font-size: 20px;
+                    background-color: pink;
+                    margin: 10px;
+                    color: black;
+                    border-radius: 20px;
+                    cursor: pointer;
+
+
+                }
+                input:hover {
+                    color: lightcoral;
+                    background-color: rgb(190, 73, 73);
+                }
+                #btn1 {
+                    background-color: red;
+                    color: black;
+                }
+
+                #btn1:hover {
+                    background-color:  rgb(190, 73, 73);
+                    color:  lightcoral;
+                }
+
+
+
+        </style>
+
+    </head>
+    <body>
+        <div id="header">  <!-- Header -->
+            <ul class="nav justify-content-center">
+                <li sec:authorize="isAuthenticated()"><a th:href ="@{/patient/Home}">Home</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/patient/Patient_Medical_Status}">Medical Status</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/patient/Patient_Account_Settings}">Account Settings</a></li>
+                <li sec:authorize="isAuthenticated()"><a href="#" th:href="@{/logout}">Logout</a></li>
+            </ul>
+
+        </div>
+
+        <div class="container">
+            <h1> Patient </h1>
+            <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${param.update}">
+                <p>Successfully Updated Patient</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            <table class="table table-bordered" >
+                <thead class="table-Secondary">
+                    <tr>
+                        <th>Patients First Name</th>
+                        <th>Patients Last Name</th>
+                        <th>Patients Email</th>
+                        <th>Patients Phone Number</th>
+                        <th>Patients Address</th>
+                        <th>Patients Emergency Contact</th>
+                        <th>Patients Emergency Contact Number</th>
+                        <th>Patients Gender</th>
+                        <th>Update</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="Patients : ${listPatientsInfo}">
+                        <td th:text="${Patients.firstName}"></td>
+                        <td th:text="${Patients.lastName}"></td>
+                        <td th:text="${Patients.email}"></td>
+                        <td th:text="${Patients.phone}"></td>
+                        <td th:text="${Patients.address}"></td>
+                        <td th:text="${Patients.emergencyContact}"></td>
+                        <td th:text="${Patients.emergencyContactNum}"></td>
+                        <td th:text="${Patients.gender}"></td>
+                        <td><a id="medChartbtn" th:href="@{/formUpdatePatients/{id}(id=${Patients.id})}" class="btn btn-primary">Update</a>
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" 
+                integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" 
+        crossorigin="anonymous"></script>
+    </body>
+</html>
+=======
+>>>>>>> Stashed changes
 <!DOCTYPE html>
 <!--
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -154,3 +302,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         crossorigin="anonymous"></script>
     </body>
 </html>
+<<<<<<< Updated upstream
+=======
+>>>>>>> 0791adb155f182536dc412997e8efe8d13522e0b
+>>>>>>> Stashed changes

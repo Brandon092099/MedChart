@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html 
+    lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Patients</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" 
+              rel="stylesheet" 
+              integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" 
+              crossorigin="anonymous"/>
+
+
+        <style>
+
+            #header {
+                margin-left: 5px;
+                margin-top: 25px;
+                margin-right: 5px;
+                background: #4c6ca0;
+                border-radius: 10px;
+                margin-bottom: 25px;
+                color: #fff;
+            }
+
+            #header li {
+                list-style: none;
+                float: left;
+            }
+
+            #header li a {
+                display: block;
+                color: #fff;
+                text-decoration: none;
+                padding: 15px 20px;
+            }
+
+            #header li a:hover {
+                background-color: #446190;
+                color: #f4f4f4;
+            }
+
+            #medChartbtn {
+                background-color: rgba(101, 165, 207, 0.822);
+                border: rgba(101, 165, 207, 0.822);
+                cursor:pointer;
+                margin-bottom: 10px;
+            }
+
+
+
+
+            #main{
+                clear: both;
+                display: table;
+                margin-top: 3px;
+            }
+
+            #spacer{
+                margin-right: 4px;
+            }
+
+            #Info {
+                display: table-cell;
+                color: brown;
+                background-color: whitesmoke;
+                border: 3px solid grey;
+                border-radius: 10px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                padding: 10px;
+
+            }
+
+
+
+            #sidebar {
+                display: table-cell;
+                width: 300px;
+                background-color: whitesmoke;
+                border: 3px solid grey;
+                border-radius: 10px;
+                color: brown;
+
+            }
+
+            .sidebar ul {
+                color: purple;
+            }
+
+            .sidebar li a:hover {
+                color: orange;
+            }
+            
+            #btnspace{
+                margin-left: 25px;
+            }
+            
+            #form{
+                margin-left: 25px;
+                margin-right: 25px;
+            }
+            
+            #medChartbtn:hover {
+                background: #005e8a;
+            }
+
+
+
+        </style>
+
+    </head>
+    <body>
+        <div>
+            <h4 id="header" class="nav justify-content-center">Update Patients</h4>
+
+            <div id="form">
+                <form action="#" th:action="@{/receptionist/updatePatients}" th:object ="${patients}" method="post" class="row g-3">
+
+                    <input type="hidden" th:field="*{id}"></input>
+
+                    <div class="form-floating mb-3 col-md-6">
+                        <input type="text" th:field="*{firstName}" placeholder="Patients First Name" 
+                               class="form-control" id="floatingInput"></input>
+                        <label for="floatingInput">First Name</label>
+                    </div>
+
+                    <div class="form-floating mb-3 col-md-6">
+                        <input type="text" th:field="*{lastName}" placeholder="Patients Last Name"
+                               class="form-control" id="floatingInput"></input>
+                        <label for="floatingInput">Last Name</label>
+                    </div>
+
+                    <div class="form-floating mb-3 col-md-6">
+                        <input type="text" th:field="*{email}" placeholder="Patients Email"
+                               class="form-control" id="floatingInput"></input>
+                        <label for="floatingInput">Email</label>
+                    </div>
+
+                    <div class="form-floating mb-3 col-md-6">
+                        <input type="text" th:field="*{phone}" placeholder="Patients Phone Number"
+                               class="form-control" id="floatingInput"></input>
+                        <label for="floatingInput">Phone</label>
+                    </div>
+
+                    <div class="form-floating mb-3 col-md-6">
+                        <input type="text" th:field="*{address}" placeholder="Patients Address"
+                               class="form-control" id="floatingInput"></input>
+                        <label for="floatingInput">Address</label>
+                    </div>
+
+                    <div class="form-floating mb-3 col-md-6">
+                        <input type="text" th:field="*{emergencyContact}" placeholder="Patients Emergency Contact"
+                               class="form-control" id="floatingInput"></input>
+                        <label for="floatingInput">Emergency Contact</label>
+                    </div>
+
+                    <div class="form-floating mb-3 col-md-6">
+                        <input type="text" th:field="*{emergencyContactNum}" placeholder="Patients Emergency Contact Number"
+                               class="form-control" id="floatingInput"></input>
+                        <label for="floatingInput">Emergency Contact Phone Number</label>
+                    </div>
+
+                    <div class="form-floating mb-3 col-md-6">
+                        <input type="text" th:field="*{gender}" placeholder="Patients Gender"
+                               class="form-control" id="floatingInput"></input>
+                               <label for="floatingInput">Gender</label>
+                    </div>
+                    <div id="btnspace" class="col-12">
+                        <button type="submit" class="btn btn-primary" id="medChartbtn"> Update Patients</button>
+                    </div>
+                </form>
+            </div>
+            <div id="btnspace" class="col-12">
+                <a th:href ="@{/receptionist/Receptionist_Account_Settings}" class="btn btn-primary" id="medChartbtn">Back to Patient List</a> 
+            </div>
+
+        </div>
+    </body>
+</html>

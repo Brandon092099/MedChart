@@ -6,17 +6,21 @@
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
     <head>
-        <title>Check In</title>
+        <title>MedChart</title>
         <meta charset="utf-8">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" 
+              rel="stylesheet" 
+              integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" 
+              crossorigin="anonymous"/>
 
             <style>
+
                 #header {
                     margin: 0;
                     padding: 0;
                     background: #4c6ca0;
                     border-radius: 10px;
                     overflow: auto;
-                    margin-bottom: 10px;
                 }
 
                 #header li {
@@ -36,64 +40,62 @@
                     color: #f4f4f4;
                 }
 
+                .btn {
+                    background: #4c6ca0;
+                    color: black;
+                    border: none;
+                    font-size: 16px;
+                    padding: 10px 20px;
+                    border-radius: 10px;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    cursor:pointer;
+                }
+
+                .btn:hover {
+                    background: black;
+                    color: yellowgreen;
+                }
+
                 #main{
                     clear: both;
                     display: table;
+                    margin-top: 3px;
+                }
+                
+                #spacer{
+                    margin-right: 4px;
                 }
 
                 #Info {
                     display: table-cell;
-                    background-color: #c0c0c0;
-                    padding: 10px;
+                    color: brown;
+                    background-color: whitesmoke;
+                    border: 3px solid grey;
                     border-radius: 10px;
-
-                }
-
-                #btn{
-                    display: block;
-                    margin-top: 15px;
-                    border-radius: 10px;
-                    width: 100%;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                     padding: 10px;
-                    background-color: rgba(101, 165, 207, 0.822);
-                    border: rgba(101, 165, 207, 0.822);
-                    cursor: pointer;
+
+                }
+                
+                
+
+                #sidebar {
+                    display: table-cell;
+                    width: 300px;
+                    background-color: whitesmoke;
+                    border: 3px solid grey;
+                    border-radius: 10px;
+                    color: brown;
+                    
                 }
 
-                #btn:hover {
-                    background: #005e8a;
+                .sidebar ul {
+                    color: purple;
                 }
 
-                #email {
-                    padding: 5px;
-                    border: #ddd 1px solid;
-                    border-radius: 4px;
+                .sidebar li a:hover {
+                    color: orange;
                 }
-
-                #number {
-                    padding: 5px;
-                    border: #ddd 1px solid;
-                    border-radius: 4px;
-                }
-
-                #name {
-                    padding: 5px;
-                    border: #ddd 1px solid;
-                    border-radius: 4px;
-                }
-
-                #address {
-                    padding: 5px;
-                    border: #ddd 1px solid;
-                    border-radius: 4px;
-                }
-
-                #date {
-                    padding: 5px;
-                    border: #ddd 1px solid;
-                    border-radius: 4px;
-                }
-
 
 
 
@@ -105,16 +107,11 @@
 
         <div id="header">  <!-- Header -->
 
-            <ul>
-                <li><a href="Home">Home</a></li>
-                <li><a href="Medical_Status">Medical Status</a></li>
-                <li><a href="Test_Results">Test Results</a></li>
-                <li><a href="Messages">Messages</a></li>
-                <li><a href="Check_In">Check In</a></li>
-                <li><a href="Room_Management">Room Management</a></li>
-                <li><a href="Account_Settings">Account Settings</a></li>
-                <li><a href="Assistance">Assistance</a></li>
-                <li><a href="Login">Logout</a></li>
+            <ul class="nav justify-content-center">
+                <li sec:authorize="isAuthenticated()"><a th:href ="@{/receptionist/Home}">Home</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/receptionist/Check_In}">Check In</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/receptionist/Receptionist_Account_Settings}">Account Settings</a></li>
+                <li sec:authorize="isAuthenticated()"><a href="#" th:href="@{/logout}">Logout</a></li>
             </ul>
         </div>
 

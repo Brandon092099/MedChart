@@ -7,6 +7,7 @@ package net.codejava.MedChart.Service;
 import net.codejava.MedChart.Repository.Patients_Repository;
 import java.util.List;
 import java.util.Optional;
+import net.codejava.MedChart.DTO.User_Register_DTO;
 import net.codejava.MedChart.User.Patients;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,7 @@ public class Patients_ServiceImpl implements Patients_Service{
     public List<Patients> getAllPatients() {
         return PatientsRepo.findAll();
     }
+    
 
     @Override
     public void savePatients(Patients patients) {
@@ -46,6 +48,10 @@ public class Patients_ServiceImpl implements Patients_Service{
     @Override
     public void deletePatients(long id) {
         this.PatientsRepo.deleteById(id);
+    }
+    
+    public void singlePt(User_Register_DTO id) {
+        this.PatientsRepo.findByEmail(id.getEmail());
     }
     
 }
