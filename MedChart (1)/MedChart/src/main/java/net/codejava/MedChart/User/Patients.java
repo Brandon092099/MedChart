@@ -46,12 +46,15 @@ public class Patients {
 
     @Column(name = "gender", unique = false, length = 26)
     private String gender;
+
+    @Column(name = "room_Num", unique = false, length = 26)
+    private String room_Num;
     
     public Patients(){
         
     }
 
-    public Patients(long id, String firstName, String lastName, String email, String phone, String address, String emergencyContact, String emergencyContactNum, String gender) {
+    public Patients(long id, String firstName, String lastName, String email, String phone, String address, String emergencyContact, String emergencyContactNum, String gender, String room_Num) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -61,6 +64,7 @@ public class Patients {
         this.emergencyContact = emergencyContact;
         this.emergencyContactNum = emergencyContactNum;
         this.gender = gender;
+        this.room_Num = room_Num;
     }
     
     
@@ -135,6 +139,14 @@ public class Patients {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public void setroomNum(String roomNum) {
+        this.room_Num = roomNum;
+    }
+
+    public String getroomNum() {
+        return room_Num;
     }
 
    

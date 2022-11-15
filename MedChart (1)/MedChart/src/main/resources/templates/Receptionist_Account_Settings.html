@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html
+    lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+    <head>
+        <title>Account Settings</title>
+
+
+        <meta charset="utf-8"/>
+
+        <style>
+            #header {
+                margin: 0;
+                padding: 0;
+                background: #4c6ca0;
+                border-radius: 10px;
+                overflow: auto;
+                margin-bottom: 10px;
+            }
+
+            #header li {
+                list-style: none;
+                float: left;
+            }
+
+            #header li a {
+                display: block;
+                color: #fff;
+                text-decoration: none;
+                padding: 15px 20px;
+            }
+
+            #header li a:hover {
+                background-color: #446190;
+                color: #f4f4f4;
+            }
+
+            #main {
+                clear: both;
+                display: table;
+            }
+
+            #Info {
+                display: table-cell;
+                background-color: #c0c0c0;
+                padding: 10px;
+                border-radius: 10px;
+            }
+
+            #sidebar {
+                display: table-cell;
+                width: 300px;
+            }
+
+            input {
+                padding: 5px;
+                border: #ddd 1px solid;
+                border-radius: 5px;
+            }
+
+            #btn {
+                border-radius: 5px;
+                padding: 5px;
+                cursor: pointer;
+                background-color: rgba(101, 165, 207, 0.822);
+                border: rgba(101, 165, 207, 0.822);
+            }
+
+            #btn:hover {
+                background: #005e8a;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- body content goes here -->
+
+        <div id="header">
+            <ul class="nav justify-content-center">
+                <li sec:authorize="isAuthenticated()"><a th:href ="@{/receptionist/Home}">Home</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/receptionist/Check_In}">Check In</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/receptionist/Patients_View}">View Patients</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/receptionist/Account_Settings}">Account Settings</a></li>
+                <li sec:authorize="isAuthenticated()"><a href="#" th:href="@{/logout}">Logout</a></li>
+            </ul>
+        </div>
+
+        <div id="main">
+            <!-- main -->
+
+            <div id="Info">
+                <!-- main content -->
+                <label for="email">Update Email</label>
+                <br />
+                <input type="email" name="email" id="email" />
+                <input
+                    type="button"
+                    id="btn"
+                    onclick="parent.location = 'Account_Settings'"
+                    value="Update"
+                    />
+                <br />
+                <br />
+                <label for="password">Update Password</label>
+                <br />
+                <input type="password" name="password" id="password" />
+                <input
+                    type="button"
+                    id="btn"
+                    onclick="parent.location = 'Account_Settings'"
+                    value="Update"
+                    />
+                <br />
+                <br />
+                <label for="name">Update Name</label>
+                <br />
+                <input type="name" name="name" id="name" />
+                <input
+                    type="button"
+                    id="btn"
+                    onclick="parent.location = 'Account_Settings'"
+                    value="Update"
+                    />
+                <br />
+                <br />
+                <label for="address">Update Address</label>
+                <br />
+                <input type="address" name="address" id="address" />
+                <input
+                    type="button"
+                    id="btn"
+                    onclick="parent.location = 'Account_Settings'"
+                    value="Update"
+                    />
+                <br />
+                <br />
+                <label for="date">Update Birthdate</label>
+                <br />
+                <input type="date" name="date" id="date" />
+                <input
+                    type="button"
+                    id="btn"
+                    onclick="parent.location = 'Account_Settings'"
+                    value="Update"
+                    />
+                <br />
+                <br />
+                Notifications
+                <input
+                    type="checkbox"
+                    id="Notifications"
+                    name="Notifications"
+                    value="Notifications"
+                    />
+            </div>
+        </div>
+    </body>
+</html>
