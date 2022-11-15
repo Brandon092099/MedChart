@@ -3,13 +3,175 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
-<html>
+<html
+    lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    xmlns:sec="http://www.thymeleaf.org./thymeleaf-extras-springsecurity3">
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8" />
+        <title>Admin</title>
+        <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" 
+      rel="stylesheet" 
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" 
+      crossorigin="anonymous"/>
+
+
+        <style>
+
+            #header {
+                margin-left: 5px;
+                margin-top: 10px; 
+                margin-right: 5px;
+                padding: 0;
+                background: #4c6ca0;
+                border-radius: 10px;
+                overflow: auto;
+            }
+
+            #header li {
+                list-style: none;
+                float: left;
+            }
+
+            #header li a {
+                display: block;
+                color: #fff;
+                text-decoration: none;
+                padding: 15px 20px;
+            }
+
+            #header li a:hover {
+                background-color: #446190;
+                color: #f4f4f4;
+            }
+
+            .btn {
+                background: #4c6ca0;
+                color: black;
+                border: none;
+                font-size: 16px;
+                padding: 10px 20px;
+                border-radius: 10px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                cursor:pointer;
+            }
+
+            .btn:hover {
+                background: black;
+                color: yellowgreen;
+            }
+
+            #main{
+                clear: both;
+                display: table;
+                margin-top: 3px;
+            }
+
+            #spacer{
+                margin-right: 4px;
+            }
+
+            #Info {
+                display: table-cell;
+                color: brown;
+                background-color: whitesmoke;
+                border: 3px solid grey;
+                border-radius: 10px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                padding: 10px;
+
+            }
+
+
+
+            #sidebar {
+                display: table-cell;
+                width: 300px;
+                background-color: whitesmoke;
+                border: 3px solid grey;
+                border-radius: 10px;
+                color: brown;
+
+            }
+
+            .sidebar ul {
+                color: purple;
+            }
+
+            .sidebar li a:hover {
+                color: orange;
+            }
+
+
+
+        </style>
+
     </head>
     <body>
-        <div>TODO write content</div>
+
+        <div id="header">  <!-- Header -->
+            <ul class="nav justify-content-center">
+                <li sec:authorize="isAuthenticated()"><a th:href ="@{/medStaff/Home}">Home</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/medStaff/MedStatus}">Medical Status</a></li>
+                <li sec:authorize="isAuthenticated()"><a href="#" th:href="@{/logout}">Logout</a></li>
+            </ul>
+
+        </div>
+
+        <div class="container">
+            <h1> Medical Staff </h1>
+
+            <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${param.success}">
+                <p>Successfully Added Medical Staff</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${param.update}">
+                <p>Successfully Updated Medical Staff</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${param.delete}">
+                <p>Medical Staff Deleted</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            <a id="medChartbtn" th:href ="@{/medStaff/newMedStatusForm}" class="btn btn-primary"> Add Medical Staff </a>
+
+            <table class="table table-bordered" >
+                <thead class="table-Secondary">
+                    <tr>
+                        <th>Medical Staff First Name</th>
+                        <th>Medical Staff Last Name</th>
+                        <th>Medical Staff Email</th>
+                        <th>Medical Staff Phone Number</th>
+                        <th>Medical Staff Address</th>
+                        <th>Medical Staff Emergency Contact</th>
+                        <th>Medical Staff Emergency Contact Number</th>
+                        <th>Update</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="MedicalStatus : ${listMS}">
+                        <td th:text="${MedicalStatus.firstName}"></td>
+                        <td th:text="${MedicalStatus.lastName}"></td>
+                        <td th:text="${MedicalStatus.DOB}"></td>
+                        <td th:text="${MedicalStatus.type}"></td>
+                        <td th:text="${MedicalStatus.status}"></td>
+                        <td th:text="${MedicalStatus.notes}"></td>
+                        <td><a id="medChartbtn" th:href="@{/formMSUpdate/{id}(id=${MedicalStatus.id})}" class="btn btn-primary">Update</a>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" 
+                integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" 
+        crossorigin="anonymous"></script>
     </body>
 </html>
+
+

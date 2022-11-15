@@ -3,13 +3,171 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
-<html>
+<html
+    lang="en"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8" />
+        <title>Medical Staff</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" 
+              rel="stylesheet" 
+              integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" 
+              crossorigin="anonymous"/>
+
+        <style>
+
+            #header {
+                margin-left: 5px;
+                margin-top: 25px;
+                margin-right: 5px;
+                background: #4c6ca0;
+                border-radius: 10px;
+                margin-bottom: 25px;
+            }
+
+
+            #header li {
+                list-style: none;
+                float: left;
+            }
+
+            #header li a {
+                display: block;
+                color: #fff;
+                text-decoration: none;
+                padding: 15px 20px;
+            }
+
+            #header li a:hover {
+                background-color: #446190;
+                color: #f4f4f4;
+            }
+
+            #medChartbtn {
+                background-color: rgba(101, 165, 207, 0.822);
+                border: rgba(101, 165, 207, 0.822);
+                cursor:pointer;
+                margin-bottom: 10px;
+            }
+
+
+
+
+            #main{
+                clear: both;
+                display: table;
+                margin-top: 3px;
+            }
+
+            #spacer{
+                margin-right: 4px;
+            }
+
+            #Info {
+                display: table-cell;
+                color: brown;
+                background-color: whitesmoke;
+                border: 3px solid grey;
+                border-radius: 10px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                padding: 10px;
+
+            }
+
+
+
+            #sidebar {
+                display: table-cell;
+                width: 300px;
+                background-color: whitesmoke;
+                border: 3px solid grey;
+                border-radius: 10px;
+                color: brown;
+
+            }
+
+            .sidebar ul {
+                color: purple;
+            }
+
+            .sidebar li a:hover {
+                color: orange;
+            }
+
+
+            #btnspace{
+                margin-left: 25px;
+            }
+
+            #form{
+                margin-left: 25px;
+                margin-right: 25px;
+            }
+            
+           #medChartbtn:hover {
+                background: #005e8a;
+            }
+
+        </style>
+
+
     </head>
     <body>
-        <div>TODO write content</div>
+        <div>
+
+            <h4 id="header" class="nav justify-content-center">Add Medical Staff</h4>
+
+            <div id="form">
+                <form action="#" th:action="@{/medStaff/saveMedStatus}" th:object ="${medicalStatus}" method="POST" class="row g-3">
+
+                    <div class="form-floating mb-3 col-md-6">
+                        <input type="text" th:field="*{firstName}" placeholder="Medical Staff First Name"
+                               class="form-control" id="floatingInput"></input>
+                        <label for="floatingInput">First Name</label>
+                    </div>
+
+                    <div class="form-floating mb-3 col-md-6">
+                        <input type="text" th:field="*{lastName}" placeholder="Medical Staff Last Name"
+                               class="form-control" id="floatingInput"></input>
+                        <label for="floatingInput">Last Name</label>                    </div>
+
+                    <div class="form-floating mb-3 col-md-6">
+                        <input type="text" th:field="*{DOB}" placeholder="Medical Staff email" 
+                               class="form-control" id="floatingInput"></input>
+                        <label for="floatingInput">Email</label>
+                    </div>
+
+                    <div class="form-floating mb-3 col-md-6">
+                        <input type="text" th:field="*{type}" placeholder="Medical Staff Phone Number" 
+                               class="form-control" id="floatingInput"></input>
+                        <label for="floatingInput">Phone</label>
+                    </div>
+
+                    <div class="form-floating mb-3 col-md-12">
+                        <input type="text" th:field="*{status}" placeholder="Medical Staff Address" 
+                               class="form-control" id="floatingInput"></input>
+                        <label for="floatingInput">Address</label>
+                    </div>
+
+                    <div class="form-floating mb-3 col-md-6">
+                        <input type="text" th:field="*{notes}" placeholder="Medical Staff Emergency Contact" 
+                               class="form-control" id="floatingInput"></input>
+                        <label for="floatingInput">Emergency Contact</label>
+                    </div>
+
+                    
+                    <div id="btnspace" class="col-12">
+                        <button type="submit" class="btn btn-primary" id="medChartbtn"> Add Medical Staff</button>
+                    </div>
+                </form>
+            </div>
+
+
+            <div id="btnspace" class="col-12">
+                <a th:href ="@{/medStaff/MedStatus}" class="btn btn-primary" id="medChartbtn">Back to Medical Staff List</a> 
+            </div>
+
+        </div>
     </body>
 </html>

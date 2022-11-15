@@ -4,8 +4,8 @@
  */
 package net.codejava.MedChart.Service;
 
-import MedicalStatus_Repository;
 import java.util.List;
+import java.util.Optional;
 import net.codejava.MedChart.User.MedicalStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import net.codejava.MedChart.Repository.MedicalStatus_Repository;
@@ -21,12 +21,24 @@ public class MedicalStatus_ServiceImpl implements MedicalStatus_Service{
 
     @Override
     public List<MedicalStatus> getAllPatients() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return MSRepo.findAll();
     }
 
     @Override
     public void savePatients(MedicalStatus patientsStatus) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.MSRepo.save(patientsStatus);
+    }
+
+    @Override
+    public MedicalStatus getMSById(long id) {
+        Optional<MedicalStatus> optional = MSRepo.findById(id);
+        MedicalStatus patient = null;
+        if (optional.isPresent()) {
+            patient = optional.get();
+        } else {
+            throw new RuntimeException("Patient not found for id:: " + id);
+        }
+        return patient;
     }
     
 }

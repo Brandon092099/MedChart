@@ -115,7 +115,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <div id="header">  <!-- Header -->
             <ul class="nav justify-content-center">
                 <li sec:authorize="isAuthenticated()"><a th:href ="@{/medStaff/Home}">Home</a></li>
-                <li sec:authorize="isAuthenticated()"><a th:href="@{/admin/Patients}">Patients</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/medStaff/MedStatus}">Medical Status</a></li>
                 <li sec:authorize="isAuthenticated()"><a href="#" th:href="@{/logout}">Logout</a></li>
             </ul>
 

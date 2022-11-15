@@ -6,7 +6,9 @@ package net.codejava.MedChart.AppContoller;
 
 import net.codejava.MedChart.Service.MedStaff_Service;
 import net.codejava.MedChart.Service.MedStaff_ServiceImpl;
+import net.codejava.MedChart.Service.MedicalStatus_Service;
 import net.codejava.MedChart.User.MedStaff;
+import net.codejava.MedChart.User.MedicalStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +26,9 @@ public class MedStaff_Controller {
 
     @Autowired
     private MedStaff_Service MedService;
+    
+    @Autowired
+    private MedicalStatus_Service MSservice;
 
     //display list of MedStaff
     @GetMapping("/admin/MedStaff")
@@ -75,5 +80,51 @@ public class MedStaff_Controller {
         this.MedService.deleteMedStaff(id);
         return ("redirect:/admin/MedStaff?delete");
     }
+    
+    @GetMapping("/medStaff/medStatus")
+    public String listStatus(Model model){
+        model.addAttribute("listMS", MSservice.getAllPatients());
+        
+        return "Medical Status";
+    }
+    
+    @GetMapping("/formMSUpdate/{id}")
+    public String FormMSUpdate(@PathVariable(value = "id") long id, Model model) {
+
+        MedicalStatus medicalStatus = MSservice.getMSById(id);
+
+        model.addAttribute("medicalStatus", medicalStatus);
+
+        return "update_Medical_Status";
+    }
+    
+    @GetMapping("/medStaff/newMedStatusForm}")
+    public String MSForm(Model model) {
+        MedicalStatus  medicalStatus = new MedicalStatus();
+
+        model.addAttribute("medicalStatus", medicalStatus);
+
+        return "Add_Medical_Status";
+    }
+
+    @PostMapping("/medStaff/saveMedStatus")
+    public String saveMS(@ModelAttribute("medicalStatus") MedicalStatus medicalStatus) {
+
+        //save to database
+        MSservice.savePatients(medicalStatus);
+
+        return "redirect:/medStaff/medStatus?success";
+    }
+    
+    @PostMapping("/medStaff/updateMS")
+    public String updateMS(@ModelAttribute("medicalStatus") MedicalStatus medicalStatus) {
+
+        //save to database
+        MSservice.savePatients(medicalStatus);;
+
+        return "redirect:/medStaff/medStatus?update";
+    }
+
+  
 }
 

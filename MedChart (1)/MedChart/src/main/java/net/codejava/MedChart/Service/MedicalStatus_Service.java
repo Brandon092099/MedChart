@@ -15,4 +15,6 @@ public interface MedicalStatus_Service {
      List<MedicalStatus> getAllPatients();
     
     void savePatients(MedicalStatus patientsStatus);
+    
+    MedicalStatus getMSById(long id);
 }
