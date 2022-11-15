@@ -20,13 +20,14 @@ import javax.persistence.GenerationType;
 public class MedicalStatus {
 
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
     
@@ -50,7 +51,7 @@ public class MedicalStatus {
         
     }
 
-    public MedicalStatus(Long id, String firstName, String lastName, String DOB, String type, String status, String notes) {
+    public MedicalStatus(long id, String firstName, String lastName, String DOB, String type, String status, String notes) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

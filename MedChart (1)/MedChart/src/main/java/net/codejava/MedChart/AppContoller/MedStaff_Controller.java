@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.context.annotation.Bean;
 
 /**
  *
@@ -81,11 +82,11 @@ public class MedStaff_Controller {
         return ("redirect:/admin/MedStaff?delete");
     }
     
-    @GetMapping("/medStaff/medStatus")
+    @GetMapping("/medStaff/MedStatus")
     public String listStatus(Model model){
         model.addAttribute("listMS", MSservice.getAllPatients());
         
-        return "Medical Status";
+        return "MedicalStatus";
     }
     
     @GetMapping("/formMSUpdate/{id}")
@@ -98,7 +99,7 @@ public class MedStaff_Controller {
         return "update_Medical_Status";
     }
     
-    @GetMapping("/medStaff/newMedStatusForm}")
+    @GetMapping("/medStaff/newMedStatusForm")
     public String MSForm(Model model) {
         MedicalStatus  medicalStatus = new MedicalStatus();
 
@@ -113,7 +114,7 @@ public class MedStaff_Controller {
         //save to database
         MSservice.savePatients(medicalStatus);
 
-        return "redirect:/medStaff/medStatus?success";
+        return "redirect:/medStaff/MedStatus?success";
     }
     
     @PostMapping("/medStaff/updateMS")
@@ -122,7 +123,7 @@ public class MedStaff_Controller {
         //save to database
         MSservice.savePatients(medicalStatus);;
 
-        return "redirect:/medStaff/medStatus?update";
+        return "redirect:/medStaff/MedStatus?update";
     }
 
   

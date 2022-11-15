@@ -9,11 +9,13 @@ import java.util.Optional;
 import net.codejava.MedChart.User.MedicalStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import net.codejava.MedChart.Repository.MedicalStatus_Repository;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author davidamaya
  */
+@Service
 public class MedicalStatus_ServiceImpl implements MedicalStatus_Service{
     
     @Autowired

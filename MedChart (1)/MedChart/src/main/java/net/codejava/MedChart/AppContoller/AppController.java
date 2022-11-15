@@ -90,46 +90,5 @@ public class AppController {
     }
     
     
-    @GetMapping("/Account_Settings")
-    public ModelAndView Account_SettingsPage() {
-        return new ModelAndView("Account_Settings");
-    }
-    
-    
-    @GetMapping("/Assistance")
-    public ModelAndView AssistancePage() {
-        return new ModelAndView("Assistance");
-    }
-    
-    @GetMapping("/Check_In")
-    public ModelAndView Check_InPage() {
-        return new ModelAndView("Check_In");
-    }
-    
-    @GetMapping("/Medical_Status")
-    public ModelAndView Medical_StatusPage() {
-        return new ModelAndView("Medical_Status");
-    }
-    
-    @GetMapping("/Messages")
-    public ModelAndView MessagesPage() {
-        return new ModelAndView("Messages");
-    }
-    
-    @GetMapping("/New_Message")
-    public ModelAndView New_MessagePage() {
-        return new ModelAndView("New_Message");
-    }
-    
-    @GetMapping("/Room_Management")
-    public ModelAndView Room_ManagementPage() {
-        return new ModelAndView("Room_Management");
-    }
-    
-    @GetMapping("/Test_Results")
-    public ModelAndView Test_ResultsPage() {
-        return new ModelAndView("Test_Results");
-    }
-   
     
 }
