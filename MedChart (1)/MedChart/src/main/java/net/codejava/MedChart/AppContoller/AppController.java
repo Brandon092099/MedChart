@@ -89,7 +89,7 @@ newsApiClient.getTopHeadlines(
   JSONObject ja = jo.optJSONObject("articles");
   System.out.println(jo.toString());
   
-  for(int i = 0; i < jo.getJSONArray("articles").length(); i++){
+  for(int i = 0; i < jo.getJSONArray("source").length(); i++){
     String author = jo.getString("author");
         String title = jo.getString("title");
         String description = jo.getString("description");
